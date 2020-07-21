@@ -18,3 +18,10 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('/admin/public/home');
 });
+Route::any("ment/cateadd","Admin\MentController@cateadd");
+Route::any("ment/cateadddo","Admin\MentController@cateadddo");
+Route::any("ment/catelist","Admin\MentController@catelist");
+Route::any('ment/catelist','Admin\MentController@catelist');
+Route::get('ment/catedel/{id}','Admin\MentController@catedel');
+Route::get('ment/cateedit/{id}','Admin\MentController@cateedit');
+Route::post('ment/cateupdate','Admin\MentController@cateupdate');

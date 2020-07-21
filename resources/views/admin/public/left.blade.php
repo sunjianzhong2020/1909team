@@ -95,13 +95,23 @@
                 <ul class="treeview-menu">
 
                     <li id="admin-login">
+                        <a href="ment/cateadd" target="iframe">
+                            <i class="fa fa-circle-o"></i>广告分类添加管理
+                        </a>
+                    </li>
+                    <li id="admin-login">
+                        <a href="ment/catelist" target="iframe">
+                            <i class="fa fa-circle-o"></i>广告分类展示管理
+                        </a>
+                    </li>
+                    <li id="admin-login">
                         <a href="content_category.html" target="iframe">
-                            <i class="fa fa-circle-o"></i>广告类型管理
+                            <i class="fa fa-circle-o"></i>广告添加管理
                         </a>
                     </li>
                     <li id="admin-login">
                         <a href="content.html" target="iframe">
-                            <i class="fa fa-circle-o"></i>广告管理
+                            <i class="fa fa-circle-o"></i>广告展示管理
                         </a>
                     </li>
                 </ul>
