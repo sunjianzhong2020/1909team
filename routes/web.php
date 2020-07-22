@@ -110,5 +110,9 @@ Route::any('admin/SkuNameAdd_do','Admin\SkuNameController@SkuNameAdd_do');
 #sku属性展示
 Route::any('admin/SkuNameShow','Admin\SkuNameController@SkuNameShow');
 
+#sku属性值添加
+Route::any('admin/SkuValAdd','Admin\SkuValController@SkuValAdd');
+#sku属性值执行添加
+Route::any('admin/SkuValAdd_do','Admin\SkuValController@SkuValAdd_do');
 
 
