@@ -19,6 +19,7 @@ Route::get('/home', function () {
     return view('/admin/public/home');
 });
 
+
 Route::any("ment/cateadd","Admin\MentController@cateadd");
 Route::any("ment/cateadddo","Admin\MentController@cateadddo");
 Route::any("ment/catelist","Admin\MentController@catelist");
@@ -31,6 +32,9 @@ Route::any('ment/mentadd','Admin\MentController@mentadd');
 Route::get('ment/mentdel/{id}','Admin\MentController@mentdel');
 Route::get('ment/mentedit/{id}','Admin\MentController@mentedit');
 Route::post('ment/mentupdate','Admin\MentController@mentupdate');
+
+Route::any('ment/mentupload','Admin\MentController@mentupload');
+
 
 
 //角色增删改查
@@ -65,7 +69,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'priv'],function(){
 });
 //用户角色权限管理
 Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
-    //用户管理
+
     Route::any('/userIndex','UserController@UserIndex');
     //用户删除
     Route::any('/userDel','UserController@UserDel');
@@ -115,4 +119,10 @@ Route::any('admin/SkuValAdd','Admin\SkuValController@SkuValAdd');
 #sku属性值执行添加
 Route::any('admin/SkuValAdd_do','Admin\SkuValController@SkuValAdd_do');
 
+
+//后台登录
+Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
+    Route::any('login','LoginController@login');
+    Route::any('loginDo','LoginController@loginDo');
+});
 

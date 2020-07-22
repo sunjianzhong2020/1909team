@@ -111,19 +111,89 @@
                 <ul class="treeview-menu">
 
                     <li id="admin-login">
-                        <a href="content_category.html" target="iframe">
-                            <i class="fa fa-circle-o"></i>广告类型管理
+                        <a href="ment/cateadd" target="iframe">
+                            <i class="fa fa-circle-o"></i>广告分类添加管理
                         </a>
                     </li>
                     <li id="admin-login">
-                        <a href="content.html" target="iframe">
-                            <i class="fa fa-circle-o"></i>广告管理
+                        <a href="ment/catelist" target="iframe">
+                            <i class="fa fa-circle-o"></i>广告分类展示管理
+                        </a>
+                    </li>
+                    <li id="admin-login">
+                        <a href="ment/mentlist" target="iframe">
+                            <i class="fa fa-circle-o"></i>广告展示管理
                         </a>
                     </li>
                 </ul>
+
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-folder"></i>
+                    <span>角色管理</span>
+                    <span class="pull-right-container">
+				       			<i class="fa fa-angle-left pull-right"></i>
+				   		 	</span>
+                </a>
+                <ul class="treeview-menu">
+
+                    <li id="admin-login">
+                        <a href="/role/roleCreate" target="iframe">
+                            <i class="fa fa-circle-o"></i>角色添加管理
+                        </a>
+                    </li>
+                    <li id="admin-login">
+                        <a href="/role/roleIndex" target="iframe">
+                            <i class="fa fa-circle-o"></i>角色管理
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-folder"></i>
+                    <span>权限管理</span>
+                    <span class="pull-right-container">
+				       			<i class="fa fa-angle-left pull-right"></i>
+				   		 	</span>
+                </a>
+                <ul class="treeview-menu">
+
+                    <li id="admin-login">
+                        <a href="/priv/privCreate" target="iframe">
+                            <i class="fa fa-circle-o"></i>权限添加管理
+                        </a>
+                    </li>
+                    <li id="admin-login">
+                        <a href="/priv/privIndex" target="iframe">
+                            <i class="fa fa-circle-o"></i>权限管理
+                        </a>
+                    </li>
+                </ul>
+
             </li>
             <!-- 菜单 /-->
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-folder"></i>
+                    <span>管理员管理</span>
+                    <span class="pull-right-container">
+				       			<i class="fa fa-angle-left pull-right"></i>
+				   		 	</span>
+                </a>
+                <ul class="treeview-menu">
 
+                    <li id="admin-login">
+                        <a href="/user/userIndex" target="iframe">
+                            <i class="fa fa-circle-o"></i>查看管理
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->
