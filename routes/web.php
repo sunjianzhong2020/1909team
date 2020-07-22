@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('/admin/public/home');
 });
+<<<<<<< Updated upstream
 
 Route::any("ment/cateadd","Admin\MentController@cateadd");
 Route::any("ment/cateadddo","Admin\MentController@cateadddo");
@@ -33,6 +34,8 @@ Route::get('ment/mentedit/{id}','Admin\MentController@mentedit');
 Route::post('ment/mentupdate','Admin\MentController@mentupdate');
 
 
+=======
+>>>>>>> Stashed changes
 //角色增删改查
 Route::group(['namespace'=>'Admin','prefix'=>'role'],function(){
     //角色添加
@@ -65,7 +68,11 @@ Route::group(['namespace'=>'Admin','prefix'=>'priv'],function(){
 });
 //用户角色权限管理
 Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
+<<<<<<< Updated upstream
     //用户管理
+=======
+  //用户管理
+>>>>>>> Stashed changes
     Route::any('/userIndex','UserController@UserIndex');
     //用户删除
     Route::any('/userDel','UserController@UserDel');
@@ -83,6 +90,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
     Route::any('/register','RegisterController@register');
     Route::any('/registerDo','RegisterController@registerDo');
 });
+<<<<<<< Updated upstream
 
 #品牌添加
 Route::any('admin/brandAdd','Admin\BrandController@brandAdd');
@@ -112,3 +120,10 @@ Route::any('admin/SkuNameShow','Admin\SkuNameController@SkuNameShow');
 
 
 
+=======
+//后台登录
+Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
+    Route::any('login','LoginController@login');
+    Route::any('loginDo','LoginController@loginDo');
+});
+>>>>>>> Stashed changes
