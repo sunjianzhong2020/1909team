@@ -105,12 +105,7 @@
                         </a>
                     </li>
                     <li id="admin-login">
-                        <a href="content_category.html" target="iframe">
-                            <i class="fa fa-circle-o"></i>广告添加管理
-                        </a>
-                    </li>
-                    <li id="admin-login">
-                        <a href="content.html" target="iframe">
+                        <a href="ment/mentlist" target="iframe">
                             <i class="fa fa-circle-o"></i>广告展示管理
                         </a>
                     </li>

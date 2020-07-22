@@ -131,10 +131,10 @@
 //                return false;
                 if(res['errno']==00000){
                     alert(res['msg']);
-                    location.href="/ment/catelist";
+                    location.href="catelist";
                 }else{
                     alert(res['msg']);
-                    location.href="ment/cateadd";
+                    location.href="cateadd";
                 }
 
             }
