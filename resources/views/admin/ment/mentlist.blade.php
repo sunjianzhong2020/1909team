@@ -154,6 +154,7 @@
 </body>
 
 </html>
+
 <script>
     $(document).ready(function(){
         $('#shop_ment_img').uploadify({
