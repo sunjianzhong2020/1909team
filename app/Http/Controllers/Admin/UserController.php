@@ -124,7 +124,6 @@ class UserController extends CommonController
         $count=$user_model::where($where)->count();
         if($count>0){
             return $this->apiOutPut(000000,'该用户名称已存在',$count);
-
         }
         $res=$user_model::where('admin_id',$admin_id)->update($data);
 

@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>商品分类展示</title>
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
-    <link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="/plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -30,7 +30,7 @@
 
         <div class="box-tools pull-right">
             <div class="has-feedback">
-                名称：<input >	<button class="btn btn-default" >查询</button>
+                名称：<input><button class="btn btn-default" >查询</button>
             </div>
         </div>
         <!--工具栏/-->
@@ -49,7 +49,7 @@
             </thead>
             <tbody>
             @foreach($data as $v)
-            <tr>
+            <tr id="{{$v->sku_name_id}}">
                 <td><input  type="checkbox"></td>
                 <td>{{$v->sku_name_id}}</td>
                 <td>{{$v->sku_name_name}}</td>
@@ -111,26 +111,27 @@
 </body>
 </html>
 <script>
-    // $(document).ready(function(){
-    //     $("button[name='del']").click(function(){
-    //         // alert(11);
-    //         data = {};
-    //         data.c_id = $(this).parents('tr').attr('id');
-    //         // alert(data.c_id);
-    //         // return false;
-    //         var url = "/admin/cateDel";
-    //         $.ajax({
-    //             type:'post',
-    //             url:url,
-    //             data:data,
-    //             dataType:'json',
-    //             success:function(res){
-    //                 if(res.code=='200'){
-    //                     alert(res.message);
-    //                     window.location.href='/admin/cateShow';
-    //                 }
-    //             }
-    //         })
-    //     })
-    // })
+    $(document).ready(function(){
+        $("button[name='del']").click(function(){
+            // alert(11);
+            // return false;
+            data = {};
+            data.id = $(this).parents('tr').attr('id');
+            // alert(data.id);
+            // return false;
+            var url = "/admin/SkuNameDel";
+            $.ajax({
+                type:'post',
+                url:url,
+                data:data,
+                dataType:'json',
+                success:function(res){
+                    if(res.code=='200'){
+                        alert(res.message);
+                        window.location.href='/admin/SkuNameShow';
+                    }
+                }
+            })
+        })
+    })
 </script>
