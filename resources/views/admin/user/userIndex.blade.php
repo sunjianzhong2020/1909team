@@ -9,6 +9,10 @@
           crossorigin="anonymous">
 </head>
 <body>
+<form action="/user/userIndex" method="post">
+    <input type="text" name="admin_name" placeholder="请输入用户名.." value="{{$admin_name}}"><button>搜索</button>
+</form>
+
 <table class="table table-striped">
 
     <thead>
@@ -24,7 +28,11 @@
     @foreach($user_data as $k=>$v)
         <tr admin_id="{{$v->admin_id}}">
             <th scope="row">{{$v->admin_id}}</th>
-            <td>{{$v->admin_name}}</td>
+            <td field="admin_name">
+                <span class="span_name">{{$v->admin_name}}</span>
+                <input type="text" class="changeAdmin" value="{{$v->admin_name}}" style="display:none">
+
+            </td>
             <td>{{Date("Y-m-d",$v->add_time)}}</td>
             <th>
                 <button type="button" class="btn btn-success" id="del">删除</button>
@@ -38,6 +46,7 @@
 
     </tbody>
 </table>
+{{$user_data->links()}}
 
 </body>
 <script>
@@ -47,6 +56,40 @@
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
             }
         });
+        //用户名称的即点即改功能
+        $(document).on('click','.span_name',function(){
+           var _this=$(this);
+            var span_val=_this.text();
+           _this.hide();
+            _this.next('input').val(span_val).show();
+        })
+        $(document).on('blur','.changeAdmin',function(){
+           var _this=$(this);
+            var admin_id=_this.parents('tr').attr('admin_id');
+            var new_value=_this.val()
+           var field=_this.parents('td').attr('field')
+            var data={};
+            data.admin_id=admin_id;
+            data.new_value=new_value;
+            data.field=field;
+           var url="/user/changeAdmin";
+            $.ajax({
+                url:url,
+                data:data,
+                type:'post',
+                dataType:'json',
+                success:function(result){
+                    if(result['code']==200){
+                        _this.hide();
+                        _this.prev('span').text(new_value).show();
+                    }else{
+                        _this.hide();
+                        _this.prev('span').show();
+                        alert(result['message']);
+                    }
+                }
+            })
+        })
         //查看用户角色
         $(document).on('click','#userRole',function(){
             var admin_id=$(this).parents('tr').attr('admin_id');

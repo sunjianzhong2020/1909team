@@ -49,6 +49,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'role'],function(){
     //修改
     Route::any('roleEdit/{id}','RoleController@roleEdit');
     Route::any('roleEditDo','RoleController@roleEditDo');
+    //角色名称的即点即改
+    Route::any('changeRole','RoleController@changeRole');
     //角色添加权限
     Route::any('roleAddPriv/{id}','RoleController@roleAddPriv');
     Route::any('roleAddPrivDo','RoleController@roleAddPrivDo');
@@ -66,6 +68,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'priv'],function(){
     //权限修改
     Route::any('/privEdit/{id}','PrivController@privEdit');
     Route::any('/privEditDo','PrivController@privEditDo');
+    //权限的即点即改
+    Route::any('/changePriv','PrivController@changePriv');
 });
 //用户角色权限管理
 Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
@@ -81,6 +85,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
     Route::any('/userAddRoleDo','UserController@UserAddRoleDo');
     //用户角色展示
     Route::any('/userRoleIndex/{id}','UserController@UserRoleIndex');
+    //后台用户名称的即点即改功能
+    Route::any('/changeAdmin','UserController@changeAdmin');
 });
 //后台管理员注册
 Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
@@ -124,5 +130,7 @@ Route::any('admin/SkuValAdd_do','Admin\SkuValController@SkuValAdd_do');
 Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
     Route::any('login','LoginController@login');
     Route::any('loginDo','LoginController@loginDo');
+    //退出
+    Route::any('quit','LoginController@quit');
 });
 

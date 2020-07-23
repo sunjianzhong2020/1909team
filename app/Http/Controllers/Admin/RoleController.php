@@ -25,40 +25,41 @@ class RoleController extends CommonController
    {
       $role_name=$request->post('role_name');
       if(empty($role_name)){
-         return $this->apiOutPut(000000,'角色名称不能为空',$role_name);
+          return $this->apiOutPut(000000,'角色名称不能为空',$role_name);
       }
-//       var_dump($role_name);exit;
-       $data=[
-            'role_name'=>$role_name,
-             'add_time'=>time()
-       ];
        $role_model=new RoleModel();
+       $data=[
+           'role_name'=>$role_name
+       ];
        $where=[
            ['role_name','=',$role_name]
        ];
        $count=$role_model::where($where)->count();
-//       var_dump($count);exit;
        if($count>0){
-           return view('admin/role/roleCreate');
+           return $this->apiOutPut(000000,'该角色名称已经存在',$count);
        }
        $res=$role_model::insert($data);
-//       var_dump($res);exit;
        if($res){
-           return view('admin/role/roleIndex');
+           return $this->apiOutPut(200,'角色添加成功',$res);
        }else{
-           return view('admin/role/roleCreate');
-
+           return $this->apiOutPut(000000,'角色添加失败',$res);
        }
 }
     /**
      * 角色展示
      */
-    public function roleIndex()
+    public function roleIndex(Request $request)
     {
+        //根据角色名称的搜搜
+        $role_name=$request->post('role_name');
+       $where=[
+           ['is_del','=',1],
+           ['role_name','like','%'.$role_name.'%']
+       ];
         $pageSize=config('app.pageSize');
         $role_model=new RoleModel();
-        $role_data=$role_model::where('is_del',1)->paginate($pageSize);
-        return view('admin/role/roleIndex',['role_data'=>$role_data]);
+        $role_data=$role_model::where($where)->paginate($pageSize);
+        return view('admin/role/roleIndex',['role_data'=>$role_data,'role_name'=>$role_name]);
     }
     /**
      * 角色删除
@@ -154,6 +155,7 @@ class RoleController extends CommonController
      */
     public function rolePrivIndex($id)
     {
+        $pageSize=config('app.pageSize');
         $role_priv_model=new RolePrivModel();
         $where=[
             ['shop_role_priv.role_id','=',$id]
@@ -161,9 +163,28 @@ class RoleController extends CommonController
         $role_priv_data=$role_priv_model::leftJoin('shop_role','shop_role.role_id','=','shop_role_priv.role_id')
             ->leftJoin('shop_priv','shop_priv.priv_id','=','shop_role_priv.priv_id')
             ->where($where)
-            ->get();
+            ->paginate($pageSize);
 //        print_r($role_priv_data);die;
        return view('admin/role/rolePrivIndex',['role_priv_data'=>$role_priv_data]);
+    }
+    /**
+     * 角色名称的即点即改
+     */
+    public function changeRole(Request $request)
+    {
+       //获取新值
+        $new_value=$request->post('new_value');
+        //获取下标
+        $field=$request->post('field');
+        //获取ID
+        $role_id=$request->post('role_id');
+        $role_model=new RoleModel();
+        $res=$role_model::where('role_id',$role_id)->update([$field=>$new_value]);
+        if($res){
+            return $this->apiOutPut(200,'角色名称即点即改成功',$res);
+        }else{
+            return $this->apiOutPut(000000,'角色名称即点即改失败',$res);
+        }
     }
 
 }

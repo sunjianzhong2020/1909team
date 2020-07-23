@@ -50,4 +50,17 @@ class LoginController extends CommonController
             return $this->apiOutPut('000000','登录失败',$count);
         }
     }
+    /**
+     * 用户退出
+     */
+    public function quit()
+    {
+        $res=request()->session(['admin_id'=>null]);
+     if($res){
+         return $this->apiOutPut('200','退出成功',$res);
+     }else{
+         return $this->apiOutPut('000000','退出失败',$res);
+     }
+    }
+
 }

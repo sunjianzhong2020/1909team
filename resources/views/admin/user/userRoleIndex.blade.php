@@ -32,8 +32,9 @@
 
 
     </tbody>
-</table>
 
+</table>
+{{$admin_role_data->links()}}
 </body>
 <script>
 
