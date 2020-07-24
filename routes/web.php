@@ -50,6 +50,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'role'],function(){
     //修改
     Route::any('roleEdit/{id}','RoleController@roleEdit');
     Route::any('roleEditDo','RoleController@roleEditDo');
+    //角色名称的即点即改
+    Route::any('changeRole','RoleController@changeRole');
     //角色添加权限
     Route::any('roleAddPriv/{id}','RoleController@roleAddPriv');
     Route::any('roleAddPrivDo','RoleController@roleAddPrivDo');
@@ -67,6 +69,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'priv'],function(){
     //权限修改
     Route::any('/privEdit/{id}','PrivController@privEdit');
     Route::any('/privEditDo','PrivController@privEditDo');
+    //权限的即点即改
+    Route::any('/changePriv','PrivController@changePriv');
 });
 //用户角色权限管理
 Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
@@ -82,6 +86,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
     Route::any('/userAddRoleDo','UserController@UserAddRoleDo');
     //用户角色展示
     Route::any('/userRoleIndex/{id}','UserController@UserRoleIndex');
+    //后台用户名称的即点即改功能
+    Route::any('/changeAdmin','UserController@changeAdmin');
 });
 //后台管理员注册
 Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
@@ -114,12 +120,41 @@ Route::any('admin/SkuNameAdd','Admin\SkuNameController@SkuNameAdd');
 Route::any('admin/SkuNameAdd_do','Admin\SkuNameController@SkuNameAdd_do');
 #sku属性展示
 Route::any('admin/SkuNameShow','Admin\SkuNameController@SkuNameShow');
+#sku属性值删除
+Route::any('admin/SkuNameDel','Admin\SkuNameController@SkuNameDel');
+
+#sku属性值添加
+Route::any('admin/SkuValAdd','Admin\SkuValController@SkuValAdd');
+#sku属性值执行添加
+Route::any('admin/SkuValAdd_do','Admin\SkuValController@SkuValAdd_do');
+#sku属性值展示
+Route::any('admin/SkuValShow','Admin\SkuValController@SkuValShow');
+#sku属性值删除
+Route::any('admin/SkuValDel','Admin\SkuValController@SkuValDel');
 
 
+#sku添加
+Route::any('admin/skuAdd','Admin\SkuController@skuAdd');
+Route::any('admin/skuAdd_do','Admin\SkuController@skuAdd_do');
+
+
+
+#商品添加
+Route::any('admin/goodsAdd','Admin\GoodsController@goodsAdd');
+#商品执行添加
+Route::any('admin/goodsAdd_do','Admin\GoodsController@goodsAdd_do');
+#商品图片上传
+Route::any('admin/uploads','Admin\GoodsController@uploads');
+#商品展示
+Route::any('admin/goodsShow','Admin\GoodsController@goodsShow');
+#商品删除
+Route::any('admin/goodsDel','Admin\GoodsController@goodsDel');
 
 //后台登录
 Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
     Route::any('login','LoginController@login');
     Route::any('loginDo','LoginController@loginDo');
+    //退出
+    Route::any('quit','LoginController@quit');
 });
 

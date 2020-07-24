@@ -20,7 +20,7 @@
 <!-- .box-body -->
 
 <div class="box-header with-border">
-    <h3 class="box-title">商品分类展示</h3>
+    <h3 class="box-title">商品属性值展示</h3>
 </div>
 
 <div class="box-body">
@@ -42,17 +42,17 @@
                 <th class="" style="padding-right:0px">
                     <input id="selall" type="checkbox" class="icheckbox_square-blue">
                 </th>
-                <th class="sorting_asc">商品属性id</th>
-                <th class="sorting">商品属性名称</th>
+                <th class="sorting_asc">商品属性值id</th>
+                <th class="sorting">商品属性值名称</th>
                 <th class="text-center">操作</th>
             </tr>
             </thead>
             <tbody>
             @foreach($data as $v)
-            <tr id="{{$v->sku_name_id}}">
+            <tr id="{{$v->sku_val_id}}">
                 <td><input  type="checkbox"></td>
-                <td>{{$v->sku_name_id}}</td>
-                <td>{{$v->sku_name_name}}</td>
+                <td>{{$v->sku_val_id}}</td>
+                <td>{{$v->sku_val_name}}</td>
                 <td class="text-center">
                     <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
                     <button type="button" name="del" class="btn bg-olive btn-xs" data-toggle="modal">删除</button>
@@ -119,7 +119,7 @@
             data.id = $(this).parents('tr').attr('id');
             // alert(data.id);
             // return false;
-            var url = "/admin/SkuNameDel";
+            var url = "/admin/SkuValDel";
             $.ajax({
                 type:'post',
                 url:url,
@@ -128,7 +128,7 @@
                 success:function(res){
                     if(res.code=='200'){
                         alert(res.message);
-                        window.location.href='/admin/SkuNameShow';
+                        window.location.href='/admin/SkuValShow';
                     }
                 }
             })

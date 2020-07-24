@@ -35,7 +35,7 @@
             <ul class="nav nav-tabs">
 
                 <li class="active">
-                    <a href="#home" data-toggle="tab">sku添加</a>
+                    <a href="#home" data-toggle="tab">sku属性值添加</a>
                 </li>
             </ul>
             <!--tab头/-->
@@ -47,9 +47,9 @@
                 <div class="tab-pane active" id="home">
                     <div class="row data-type">
 
-                        <div class="col-md-2 title">商品属性名</div>
+                        <div class="col-md-2 title">商品属性值</div>
                         <div class="col-md-10 data">
-                            <input type="text" class="form-control" name="sku_name_name"  ng-model="entity.name"  placeholder="属性名称" value="">
+                            <input type="text" class="form-control" name="sku_val_name"  ng-model="entity.name"  placeholder="属性名称" value="">
                         </div>
 
                     </div>
@@ -78,10 +78,9 @@
     $(document).ready(function(){
         $("button[name='btn']").click(function(){
             // alert(111);
-            // return false;
             data = {};
-            data.sku_name_name = $("input[name='sku_name_name']").val();
-            var url = "/admin/SkuNameAdd_do";
+            data.sku_val_name = $("input[name='sku_val_name']").val();
+            var url = "/admin/SkuValAdd_do";
             $.ajax({
                 type:'post',
                 url:url,
@@ -90,10 +89,11 @@
                 success:function(res){
                     if(res.code=='200'){
                         alert(res.message);
-                        window.location.href='/admin/SkuNameShow';
+                        window.location.href='/admin/SkuValShow';
                     }
                 }
             })
         })
     })
 </script>
+
