@@ -106,7 +106,7 @@ class MentController extends Controller
 
 
         $bb = $request->all();
-//        dd($bb);s
+//        dd($bb);
         $mentmodels = new Mentmodels();
 //        $shop_ment_url = $request->shop_ment_url;
         $on = DB::table('shop_ment')->where('shop_ment_url', $bb['shop_ment_url'])->first();
@@ -178,13 +178,14 @@ class MentController extends Controller
         $ext = explode(".", $fileinfo['name'])[1];
         #新文件名字
         $newFileName = md5(uniqid()) . "." . $ext;
-        $newFilePath = "./uploads/" . Date("Y/m/d", time());
+        $newFilePath = "./imgs/" . Date("Y/m/d", time());
         if (!is_dir($newFilePath)) {
             mkdir($newFilePath, 0777, true);
         }
         $newFilePath = $newFilePath . $newFileName;
         move_uploaded_file($tmpName, $newFilePath);
         $newFilePath = ltrim($newFilePath);
+        $newFilePath = trim($newFilePath,'.');
         echo $newFilePath;
     }
     public function changevalue(Request $request)
@@ -192,7 +193,6 @@ class MentController extends Controller
         $shop_id = $request->post('shop_id');
         $shop_title = $request->post('shop_title');
         $shop_value = $request->post('new_value');
-
         $res=DB::table('shop_ment')->where('shop_ment_id',$shop_id)->update([$shop_title=>$shop_value]);
         if($res){
             echo json_encode(['errno' => 00000, 'msg' => '成功']);

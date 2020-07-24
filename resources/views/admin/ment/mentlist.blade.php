@@ -58,6 +58,7 @@
                 <th class="sorting">标题</th>
                 <th class="sorting">URL</th>
                 <th class="sorting">状态是否有效</th>
+                <th class="sorting">图片</th>
                 <th class="text-center">操作</th>
             </tr>
             </thead>
@@ -72,6 +73,7 @@
                 </td>
                 <td>{{$v->shop_ment_url}}</td>
                 <td>{{$v->shop_ment_del==1?'否':'是'}}</td>
+                <td><img src="{{$v->shop_ment_img}}" alt="" width="40px"></td>
                 <td class="text-center">
                     <a href="{{url('/ment/mentedit/'.$v->shop_ment_id)}}"><button type="button" class="btn btn-primary">修改</button></a>
                     <a href="{{url('ment/mentdel/'.$v->shop_ment_id)}}"><button type="button" class="btn btn-danger">删除</button></a>
@@ -165,7 +167,8 @@
             'uploader' : "/ment/mentupload",
             'buttonText':"选择图片",
             onUploadSuccess : function(msg,newFilePath,info){
-                console.log(newFilePath);
+//                console.log(newFilePath);
+                img2 = newFilePath;
             }
 
         })
@@ -175,6 +178,8 @@
         var shop_ment_title = $('#shop_ment_title').val();
         var shop_ment_url = $('#shop_ment_url').val();
         var shop_ment_del = $('#shop_ment_del:checked').val();
+        var shop_ment_img = img2;
+//        alert(shop_ment_img);
         //alert(shop_ment_del);false;
         if(!shop_ment_title){
             alert('标题不能为空');
@@ -188,7 +193,7 @@
 
         $.ajax({
             url:"/ment/mentadd",
-            data:{'shop_ment_cate_id':shop_ment_cate_id,'shop_ment_title':shop_ment_title,'shop_ment_url':shop_ment_url,'shop_ment_del':shop_ment_del},
+            data:{'shop_ment_cate_id':shop_ment_cate_id,'shop_ment_title':shop_ment_title,'shop_ment_url':shop_ment_url,'shop_ment_del':shop_ment_del,'shop_ment_img':shop_ment_img},
             type:"post",
             dataType:'json',
             success:function(res){
