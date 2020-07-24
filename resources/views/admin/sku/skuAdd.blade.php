@@ -54,10 +54,10 @@
                                 </select>
                         </div>
                         @foreach($sku_name as $v)
-                            <div class="row data-type">
+                            <div class="row data-type" id="name">
                                 <div class="col-md-2 title">{{$v->sku_name_name}}</div>
                                     <div class="col-md-10 data">
-                                        <select type="text" class="form-control" name=""  ng-model="entity.name" value="">
+                                        <select type="text" class="form-control" name="sku_name_id"  ng-model="entity.name" value="">
                                             <option value="">请选择</option>
                                                @foreach($v['a'] as $vv)
                                                 <option value="{{$vv->sku_val_id}}">{{$vv->sku_val_name}}</option>
@@ -74,7 +74,7 @@
 
                         <div class="col-md-2 title">商品库存</div>
                         <div class="col-md-10 data">
-                            <input type="text" class="form-control" name="goods_sn"  ng-model="entity.name"  placeholder="商品库存" value="">
+                            <input type="text" class="form-control" name="goods_num"  ng-model="entity.name"  placeholder="商品库存" value="">
                         </div>
 
 
@@ -106,7 +106,32 @@
             // alert(111);
             data = {};
             data.goods_id = $("select[name='goods_id']").val();
-            // alert(data.goods_id);
+            data.goods_price = $("input[name='goods_price']").val();
+            data.goods_num = $("input[name='goods_num']").val();
+            var arr=[];
+           $("select[name=sku_name_id]").each(function () {
+                 var bb=$(this).val();
+                     arr.push(bb);
+            });
+            data.arr = arr;
+            var url = "/admin/skuAdd_do";
+            $.ajax({
+                type:'post',
+                url:url,
+                data:data,
+                dataType:'json',
+                success:function(res){
+                    if(res.code=='200'){
+                        alert(res.message);
+                        // window.location.href='/admin/SkuValShow';
+                    }
+                }
+            })
+            // alert(data.aa);
+            // data.sku_name_id = $("c[name='sku_name_id']").find("option:selected").text();
+            // alert(data.sku_name_id);
+            // var name =
+            // alert(name.length);
         })
     })
 </script>

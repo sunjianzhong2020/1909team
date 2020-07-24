@@ -35,13 +35,13 @@
                 <ul class="treeview-menu">
 
                     <li id="admin-login">
-                        <a href="seller_1.html" target="iframe">
-                            <i class="fa fa-circle-o"></i>商家审核
+                        <a href="{{url('admin/skuAdd')}}" target="iframe">
+                            <i class="fa fa-circle-o"></i>sku添加
                         </a>
                     </li>
                     <li id="admin-login">
                         <a href="seller.html" target="iframe">
-                            <i class="fa fa-circle-o"></i>商家管理
+                            <i class="fa fa-circle-o"></i>sku展示
                         </a>
                     </li>
                 </ul>
@@ -67,13 +67,13 @@
                         </a>
                     </li>
                     <li id="admin-login">
-                        <a href="/admin/cateAdd" target="iframe">
-                            <i class="fa fa-circle-o"></i>规格管理
+                        <a href="{{url('/admin/goodsAdd')}}" target="iframe">
+                            <i class="fa fa-circle-o"></i>商品添加
                         </a>
                     </li>
                     <li id="admin-login">
-                        <a href="type_template.html" target="iframe">
-                            <i class="fa fa-circle-o"></i>模板管理
+                        <a href="{{url('/admin/goodsShow')}}" target="iframe">
+                            <i class="fa fa-circle-o"></i>商品展示
                         </a>
                     </li>
                     <li id="admin-login">
@@ -95,6 +95,18 @@
                     <li id="admin-login">
                         <a href="{{url('/admin/SkuNameShow')}}" target="iframe">
                             <i class="fa fa-circle-o"></i>商品属性展示表
+                        </a>
+                    </li>
+
+                    <li id="admin-login">
+                        <a href="{{url('/admin/SkuValAdd')}}" target="iframe">
+                            <i class="fa fa-circle-o"></i>商品属性值添加表
+                        </a>
+                    </li>
+
+                    <li id="admin-login">
+                        <a href="{{url('/admin/SkuValShow')}}" target="iframe">
+                            <i class="fa fa-circle-o"></i>商品属性值展示表
                         </a>
                     </li>
                 </ul>

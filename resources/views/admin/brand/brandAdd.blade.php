@@ -110,7 +110,8 @@
             'uploader' : "/admin/upload",
             'buttonText':"选择图片",
             onUploadSuccess : function(msg,newFilePath,info){
-                  console.log(newFilePath);
+                  // console.log(newFilePath);
+                b_img2 = newFilePath;
             }
 
         })
@@ -120,6 +121,7 @@
             // alert(111);
             data = {};
             data.b_name = $("input[name='b_name']").val();
+            data.b_img2 = b_img2;
             data.c_id = $("select[name='c_id']").val();
             data.b_url = $("input[name='b_url']").val();
             data.is_show = $("input[name='is_show']:checked").val();

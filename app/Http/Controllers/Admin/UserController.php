@@ -80,16 +80,16 @@ class UserController extends CommonController
     public function userIndex(Request $request)
     {
         //用户名称搜索
-        $admin_name=$request->post('admin_name');
-       $where=[
-           ['is_del','=',1],
-           ['admin_name','like','%'.$admin_name.'%']
-       ];
+        $admin_name = $request->post('admin_name');
+        $where = [
+            ['is_del', '=', 1],
+            ['admin_name', 'like', '%' . $admin_name . '%']
+        ];
         $pageSize = config('app.pageSize');
         $user_model = new AdminModel();;
         $user_data = $user_model->where($where)->paginate($pageSize);
 
-        return view('admin/user/userIndex', ['user_data' => $user_data,'admin_name'=>$admin_name]);
+        return view('admin/user/userIndex', ['user_data' => $user_data, 'admin_name' => $admin_name]);
     }
 
     /**
@@ -124,19 +124,41 @@ class UserController extends CommonController
      */
     public function changeAdmin(Request $request)
     {
-        $admin_id=$request->post('admin_id');
-        $new_value=$request->post('new_value');
-        $filed=$request->post('field');
-        $admin_model=new AdminModel();
-        $res=$admin_model::where('admin_id',$admin_id)->update([$filed=>$new_value]);
+        $admin_id = $request->post('admin_id');
+        $admin_name = $request->post('admin_name');
+        if (empty($admin_name)) {
+            return $this->apiOutPut(000000, '用户名不能为空', $admin_name);
+        }
+        $data = [
+            'admin_name' => $admin_name
+        ];
+        $user_model = new AdminModel();
+        $where = [
+            ['admin_name', '=', $admin_name],
+            ['admin_id', '!=', $admin_id]
+        ];
+        $count = $user_model::where($where)->count();
+        if ($count > 0) {
+            return $this->apiOutPut(000000, '该用户名称已存在', $count);
+        }
+        $res = $user_model::where('admin_id', $admin_id)->update($data);
+
         if ($res) {
-            return $this->apiOutPut(200, '即点即改成功', $res);
+            return $this->apiOutPut(200, '修改成功', $res);
 
         } else {
-            return $this->apiOutPut(000000, '即点即改失败', $res);
+            return $this->apiOutPut(000000, '修改失败', $res);
+            $new_value = $request->post('new_value');
+            $filed = $request->post('field');
+            $admin_model = new AdminModel();
+            $res = $admin_model::where('admin_id', $admin_id)->update([$filed => $new_value]);
+            if ($res) {
+                return $this->apiOutPut(200, '即点即改成功', $res);
 
+            } else {
+                return $this->apiOutPut(000000, '即点即改失败', $res);
+
+            }
         }
     }
-
-
 }
