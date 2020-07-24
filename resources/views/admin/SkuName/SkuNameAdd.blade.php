@@ -78,6 +78,7 @@
     $(document).ready(function(){
         $("button[name='btn']").click(function(){
             // alert(111);
+            // return false;
             data = {};
             data.sku_name_name = $("input[name='sku_name_name']").val();
             var url = "/admin/SkuNameAdd_do";

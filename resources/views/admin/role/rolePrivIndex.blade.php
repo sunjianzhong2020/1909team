@@ -35,7 +35,7 @@
 
     </tbody>
 </table>
-
+  {{$role_priv_data->links()}}
 </body>
 <script>
 

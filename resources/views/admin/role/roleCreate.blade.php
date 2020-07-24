@@ -11,15 +11,15 @@
 </head>
 <body>
 
-<form>
+
     <div class="form-group">
         <label for="exampleInputEmail1">角色名称</label>
-        <input type="text" class="form-control" id="role_name" aria-describedby="emailHelp">
+        <input type="text" class="form-control" id="role_name" placeholder="请输入角色名称...">
 
     </div>
 
     <button type="submit" class="btn btn-primary" id="add">添加</button>
-</form>
+
 </body>
 <script>
     $(document).ready(function(){
@@ -38,6 +38,7 @@
             }
             var data={};
             data.role_name=role_name;
+
             var url="/role/roleStore";
             $.ajax({
                 url:url,
@@ -45,14 +46,13 @@
                 type:'post',
                 dataType:'json',
                 success:function(result){
-                    return false;
                     if(result['code']==200){
-                        alert(result.message);
+                        alert(result['message']);
                         location.href="/role/roleIndex";
                     }else{
-                        alert(result.message);
+                        alert(result['message']);
                         location.href="/role/roleCreate";
-                    }g
+                    }
                 }
             })
         })

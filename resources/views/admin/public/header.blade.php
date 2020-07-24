@@ -275,7 +275,7 @@
                                     <a href="#" class="btn btn-default btn-flat">修改密码</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">注销</a>
+                                    <a href="#" class="btn btn-default btn-flat" id="quit">退出</a>
                                 </div>
                             </li>
                         </ul>
@@ -285,4 +285,24 @@
             </div>
         </nav>
     </header>
+    <script>
+        $(document).on('click','#quit',function(){
+            var url="/user/quit";
+            $.ajax({
+                url:url,
+                type:'post',
+                dataType:'json',
+                success:function(result){
+                    if(result['code']==200){
+                        alert(result.message);
+                        location.href="/user/login";
+                    }else{
+                        alert(result.message);
+                        location.href="/";
+                    }
+                }
+
+            })
+        })
+    </script>
     <!-- 页面头部 /-->
