@@ -187,5 +187,18 @@ class MentController extends Controller
         $newFilePath = ltrim($newFilePath);
         echo $newFilePath;
     }
+    public function changevalue(Request $request)
+    {
+        $shop_id = $request->post('shop_id');
+        $shop_title = $request->post('shop_title');
+        $shop_value = $request->post('new_value');
 
+        $res=DB::table('shop_ment')->where('shop_ment_id',$shop_id)->update([$shop_title=>$shop_value]);
+        if($res){
+            echo json_encode(['errno' => 00000, 'msg' => '成功']);
+        }else{
+            echo json_encode(['errno' => 00001, 'msg' => '失败']);
+            exit;
+        }
+    }
 }

@@ -63,10 +63,13 @@
             </thead>
             <tbody>
             @foreach($res as $k => $v)
-            <tr>
+            <tr shop_id="{{$v->shop_ment_id}}">
                 <td>{{$v->shop_ment_id}}</td>
                 <td>{{$v->shop_ment_cate_name}}</td>
-                <td>{{$v->shop_ment_title}}</td>
+                <td shop_title="shop_ment_title">
+                    <span class="span_title">{{$v->shop_ment_title}}</span>
+                <input type="text" class="input_title" value="{{$v->shop_ment_title}}" style="display:none">
+                </td>
                 <td>{{$v->shop_ment_url}}</td>
                 <td>{{$v->shop_ment_del==1?'否':'是'}}</td>
                 <td class="text-center">
@@ -203,4 +206,47 @@
         })
 
     })
+    //根据点击事件获取span标签
+    $(document).on('click',".span_title",function(){
+        //获取span标签
+       var _this = $(this);
+        //获取span标签的值
+        var _zjx = _this.text();
+        //对span标签进行隐藏
+        _this.hide();
+        //让input框携带span值对input框进行展示
+        _this.next('input').val(_zjx).show();
+    })
+    //然后使用鼠标失去焦点事件对标题进行修改
+    $(document).on('blur',".input_title",function(){
+        //获取到这个input框
+        var _this = $(this);
+        //获取到这个input框的新值
+        var new_value = _this.val();
+        //根据input框找到它的父节点 获取到父节点的值 因为要改他的标题
+        var shop_title = _this.parent('td').attr('shop_title');
+        //根据input框找到它的父节点 获取到祖先节点的值 因为要根据id进行修改
+        var shop_id = _this.parents('tr').attr('shop_id');
+        //console.log(shop_id);
+        $.ajax({
+            url:"/ment/changevalue",
+            data:{'new_value':new_value,'shop_title':shop_title,'shop_id':shop_id},
+            type:"post",
+            dataType:'json',
+            success:function(res){
+                if(res['errno']==00000){
+                    alert(res['msg']);
+                    _this.hide();
+                   _this.prev('span').text(new_value).show();
+                }else{
+                    alert(res['msg']);
+                    _this.hide();
+                    _this.prev('span').show();
+                    location.href="mentlist";
+                }
+
+            }
+        })
+    })
+
 </script>

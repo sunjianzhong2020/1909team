@@ -35,6 +35,7 @@ Route::post('ment/mentupdate','Admin\MentController@mentupdate');
 
 Route::any('ment/mentupload','Admin\MentController@mentupload');
 
+Route::any('ment/changevalue','Admin\MentController@changevalue');
 
 
 //角色增删改查
