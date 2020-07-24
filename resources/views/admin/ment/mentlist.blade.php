@@ -194,7 +194,7 @@
             success:function(res){
                 console.log(res);
 //                return false;
-                if(res['errno']==00000){
+                if(res['errno']=='00000'){
                     alert(res['msg']);
                     location.href="mentlist";
                 }else{
@@ -234,7 +234,7 @@
             type:"post",
             dataType:'json',
             success:function(res){
-                if(res['errno']==00000){
+                if(res['errno']=='00000'){
                     alert(res['msg']);
                     _this.hide();
                    _this.prev('span').text(new_value).show();
