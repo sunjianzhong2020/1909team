@@ -158,3 +158,5 @@ Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
     Route::any('quit','LoginController@quit');
 });
 
+
+Route::any('/index/index','Index\IndexController@index');

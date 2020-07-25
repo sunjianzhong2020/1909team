@@ -122,7 +122,7 @@ class GoodsController extends CommonController
         $data = Goods::leftjoin('shop_brand','shop_goods.b_id','=','shop_brand.b_id')
                        ->join('shop_cate','shop_goods.c_id','=','shop_cate.c_id')
                        ->where($where)
-                       ->get();
+                       ->paginate(2);
         return view('admin/goods/goodsShow',['data' => $data]);
     }
 
