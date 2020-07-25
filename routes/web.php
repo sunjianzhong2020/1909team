@@ -35,6 +35,7 @@ Route::post('ment/mentupdate','Admin\MentController@mentupdate');
 
 Route::any('ment/mentupload','Admin\MentController@mentupload');
 
+Route::any('ment/changevalue','Admin\MentController@changevalue');
 
 
 //角色增删改查
@@ -76,10 +77,10 @@ Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
 
     Route::any('/userIndex','UserController@UserIndex');
     //用户删除
-    Route::any('/userDel','UserController@UserDel');
+    Route::any('/userDel','UserController@UserDel')->middleware('checkLogin');
     //用户修改
-    Route::any('/userEdit/{id}','UserController@UserEdit');
-    Route::any('/userEditDo','UserController@UserEditDo');
+    Route::any('/userEdit/{id}','UserController@UserEdit')->middleware('checkLogin');
+    Route::any('/userEditDo','UserController@UserEditDo')->middleware('checkLogin');
     //给用户添加角色
     Route::any('/userAddRole/{id}','UserController@UserAddRole');
     Route::any('/userAddRoleDo','UserController@UserAddRoleDo');
@@ -157,3 +158,5 @@ Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
     Route::any('quit','LoginController@quit');
 });
 
+
+Route::any('/index/index','Index\IndexController@index');

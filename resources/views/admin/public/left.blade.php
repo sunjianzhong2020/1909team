@@ -27,21 +27,21 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-folder"></i>
-                    <span>商家管理</span>
+                    <span>友情链接管理</span>
                     <span class="pull-right-container">
 				       			<i class="fa fa-angle-left pull-right"></i>
-				   		 	</span>
+                    </span>
                 </a>
                 <ul class="treeview-menu">
 
                     <li id="admin-login">
-                        <a href="{{url('admin/skuAdd')}}" target="iframe">
-                            <i class="fa fa-circle-o"></i>sku添加
+                        <a href="seller.html" target="iframe">
+                            <i class="fa fa-circle-o"></i>友情链接添加
                         </a>
                     </li>
                     <li id="admin-login">
                         <a href="seller.html" target="iframe">
-                            <i class="fa fa-circle-o"></i>sku展示
+                            <i class="fa fa-circle-o"></i>友情链接展示
                         </a>
                     </li>
                 </ul>
@@ -109,6 +109,12 @@
                             <i class="fa fa-circle-o"></i>商品属性值展示表
                         </a>
                     </li>
+                    <li id="admin-login">
+                        <a href="{{url('/admin/skuAdd')}}" target="iframe">
+                            <i class="fa fa-circle-o"></i>SKU添加表
+                        </a>
+                    </li>
+
                 </ul>
             </li>
 
