@@ -122,3 +122,15 @@ Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
     Route::any('loginDo','LoginController@loginDo');
 });
 
+//友情链接
+Route::any('admin/friendAdd','Admin\FriendController@friendAdd');
+Route::any('admin/friendAdd_do','Admin\FriendController@friendAdd_do');
+Route::any('admin/friendShow','Admin\FriendController@friendShow');
+Route::any('admin/friend_del','Admin\FriendController@friend_del');
+
+//导航栏
+Route::any('admin/banneradd','Admin\BannerController@banneradd');
+Route::any('admin/bannerdo','Admin\BannerController@bannerdo');
+
+Route::any('admin/bannershow','Admin\BannerController@bannershow');
+

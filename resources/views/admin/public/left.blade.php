@@ -27,7 +27,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-folder"></i>
-                    <span>商家管理</span>
+                    <span>友情链接管理</span>
                     <span class="pull-right-container">
 				       			<i class="fa fa-angle-left pull-right"></i>
 				   		 	</span>
@@ -35,13 +35,13 @@
                 <ul class="treeview-menu">
 
                     <li id="admin-login">
-                        <a href="seller_1.html" target="iframe">
-                            <i class="fa fa-circle-o"></i>商家审核
+                        <a href="{{url('/admin/friendAdd')}}" target="iframe">
+                            <i class="fa fa-circle-o"></i>友情链接添加
                         </a>
                     </li>
                     <li id="admin-login">
-                        <a href="seller.html" target="iframe">
-                            <i class="fa fa-circle-o"></i>商家管理
+                        <a href="{{url('/admin/friendShow')}}" target="iframe">
+                            <i class="fa fa-circle-o"></i>友情链接展示
                         </a>
                     </li>
                 </ul>
@@ -193,6 +193,29 @@
 
                 </ul>
 
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-folder"></i>
+                    <span>导航栏管理</span>
+                    <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+
+                    <li id="admin-login">
+                        <a href="/admin/banneradd" target="iframe">
+                            <i class="fa fa-circle-o"></i>导航栏添加
+                        </a>
+                    </li>
+                    <li id="admin-login">
+                        <a href="/admin/bannershow" target="iframe">
+                            <i class="fa fa-circle-o"></i>导航栏展示
+                        </a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </section>
