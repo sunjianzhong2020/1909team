@@ -73,7 +73,7 @@
                 </td>
                 <td>{{$v->shop_ment_url}}</td>
                 <td>{{$v->shop_ment_del==1?'否':'是'}}</td>
-                <td><img src="{{$v->shop_ment_img}}" alt="" width="40px"></td>
+                <td><img src="{{$v->shop_ment_img}}" alt="" width="122px"></td>
                 <td class="text-center">
                     <a href="{{url('/ment/mentedit/'.$v->shop_ment_id)}}"><button type="button" class="btn btn-primary">修改</button></a>
                     <a href="{{url('ment/mentdel/'.$v->shop_ment_id)}}"><button type="button" class="btn btn-danger">删除</button></a>
