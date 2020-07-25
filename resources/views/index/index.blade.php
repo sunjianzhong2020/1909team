@@ -403,17 +403,17 @@
                     <div class="carousel-inner">
                         <div class="active item">
                             <a href="http://baidu2.wypxj.com/">
-                                <img src="img/banner1.jpg"  />
+                                <img src="/index/img/banner1.jpg"  />
                             </a>
                         </div>
                         <div class="item">
                             <a href="http://baidu2.wypxj.com/">
-                                <img src="img/banner2.jpg"  />
+                                <img src="/index/img/banner2.jpg"  />
                             </a>
                         </div>
                         <div class="item">
                             <a href="http://baidu2.wypxj.com/">
-                                <img src="img/banner3.jpg"  />
+                                <img src="/index/img/banner3.jpg"  />
                             </a>
 
                         </div>
@@ -512,7 +512,7 @@
                     </div>
                 </div>
                 <div class="ads">
-                    <img src="img/ad1.png" />
+                    <img src="/index/img/ad1.png" />
                 </div>
             </div>
         </div>
@@ -524,21 +524,21 @@
         <ul class="yui3-g Recommend">
             <li class="yui3-u-1-6  clock">
                 <div class="time">
-                    <img src="img/clock.png" />
+                    <img src="/index/img/clock.png" />
                     <h3>今日推荐</h3>
                 </div>
             </li>
             <li class="yui3-u-5-24">
-                <a href="list.html" target="_blank"><img src="img/today01.png" /></a>
+                <a href="list.html" target="_blank"><img src="/index/img/today01.png" /></a>
             </li>
             <li class="yui3-u-5-24">
-                <img src="img/today02.png" />
+                <img src="/index/img/today02.png" />
             </li>
             <li class="yui3-u-5-24">
-                <img src="img/today03.png" />
+                <img src="/index/img/today03.png" />
             </li>
             <li class="yui3-u-5-24">
-                <img src="img/today04.png" />
+                <img src="/index/img/today04.png" />
             </li>
         </ul>
     </div>
@@ -556,14 +556,14 @@
                 <li class="yui3-u-1-6">
                     <dl class="picDl huozhe">
                         <dd>
-                            <a href="" class="pic"><img src="img/like_02.png" alt="" /></a>
+                            <a href="" class="pic"><img src="/index/img/like_02.png" alt="" /></a>
                             <div class="like-text">
                                 <p>阳光美包新款单肩包女包时尚子母包四件套女</p>
                                 <h3>¥116.00</h3>
                             </div>
                         </dd>
                         <dd>
-                            <a href="" class="pic"><img src="img/like_01.png" alt="" /></a>
+                            <a href="" class="pic"><img src="/index/img/like_01.png" alt="" /></a>
                             <div class="like-text">
                                 <p>爱仕达 30CM炒锅不粘锅NWG8330E电磁炉炒</p>
                                 <h3>¥116.00</h3>
@@ -574,14 +574,14 @@
                 <li class="yui3-u-1-6">
                     <dl class="picDl jilu">
                         <dd>
-                            <a href="" class="pic"><img src="img/like_03.png" alt="" /></a>
+                            <a href="" class="pic"><img src="/index/img/like_03.png" alt="" /></a>
                             <div class="like-text">
                                 <p>爱仕达 30CM炒锅不粘锅NWG8330E电磁炉炒</p>
                                 <h3>¥116.00</h3>
                             </div>
                         </dd>
                         <dd>
-                            <a href="" class="pic"><img src="img/like_02.png" alt="" /></a>
+                            <a href="" class="pic"><img src="/index/img/like_02.png" alt="" /></a>
                             <div class="like-text">
                                 <p>阳光美包新款单肩包女包时尚子母包四件套女</p>
                                 <h3>¥116.00</h3>
@@ -592,7 +592,7 @@
                 <li class="yui3-u-1-6">
                     <dl class="picDl tuhua">
                         <dd>
-                            <a href="" class="pic"><img src="img/like_01.png" alt="" /></a>
+                            <a href="" class="pic"><img src="/index/img/like_01.png" alt="" /></a>
                             <div class="like-text">
                                 <p>捷波朗 </p>
                                 <p>（jabra）BOOSI劲步</p>
@@ -600,7 +600,7 @@
                             </div>
                         </dd>
                         <dd>
-                            <a href="" class="pic"><img nsrc="assets/img/like_02.png" alt="" /></a>
+                            <a href="" class="pic"><img nsrc="/index/img/assets/img/like_02.png" alt="" /></a>
                             <div class="like-text">
                                 <p>三星（G5500）</p>
                                 <p>移动联通双网通</p>
@@ -612,14 +612,14 @@
                 <li class="yui3-u-1-6">
                     <dl class="picDl huozhe">
                         <dd>
-                            <a href="" class="pic"><img src="img/like_02.png" alt="" /></a>
+                            <a href="" class="pic"><img src="/index/img/like_02.png" alt="" /></a>
                             <div class="like-text">
                                 <p>阳光美包新款单肩包女包时尚子母包四件套女</p>
                                 <h3>¥116.00</h3>
                             </div>
                         </dd>
                         <dd>
-                            <a href="" class="pic"><img src="img/like_01.png" alt="" /></a>
+                            <a href="" class="pic"><img src="/index/img/like_01.png" alt="" /></a>
                             <div class="like-text">
                                 <p>爱仕达 30CM炒锅不粘锅NWG8330E电磁炉炒</p>
                                 <h3>¥116.00</h3>
@@ -630,7 +630,7 @@
                 <li class="yui3-u-1-6">
                     <dl class="picDl jilu">
                         <dd>
-                            <a href="http://sc.chinaz.com/" class="pic"><img src="img/like_03.png" alt="" /></a>
+                            <a href="http://sc.chinaz.com/" class="pic"><img src="/index/img/like_03.png" alt="" /></a>
                             <div class="like-text">
                                 <p>捷波朗 </p>
                                 <p>（jabra）BOOSI劲步</p>
@@ -638,7 +638,7 @@
                             </div>
                         </dd>
                         <dd>
-                            <a href="http://sc.chinaz.com/" class="pic"><img src="img/like_02.png" alt="" /></a>
+                            <a href="http://sc.chinaz.com/" class="pic"><img src="/index/img/like_02.png" alt="" /></a>
                             <div class="like-text">
                                 <p>欧普</p>
                                 <p>JYLZ08面板灯平板灯铝</p>
@@ -650,7 +650,7 @@
                 <li class="yui3-u-1-6">
                     <dl class="picDl tuhua">
                         <dd>
-                            <a href="http://sc.chinaz.com/" class="pic"><img src="img/like_01.png" alt="" /></a>
+                            <a href="http://sc.chinaz.com/" class="pic"><img src="/index/img/like_01.png" alt="" /></a>
                             <div class="like-text">
                                 <p>三星（G5500）</p>
                                 <p>移动联通双网通</p>
@@ -658,7 +658,7 @@
                             </div>
                         </dd>
                         <dd>
-                            <a href="http://sc.chinaz.com/" class="pic"><img nsrc="assets/img/like_02.png" alt="" /></a>
+                            <a href="http://sc.chinaz.com/" class="pic"><img nsrc="/index/img/assets/img/like_02.png" alt="" /></a>
                             <div class="like-text">
                                 <p>韩国所望紧致湿润精华露400ml</p>
                                 <h3>¥896.00</h3>
@@ -679,42 +679,42 @@
         <div class="clearfix yui3-g Interest">
             <span class="x-line"></span>
             <div class="yui3-u row-405 Interest-conver">
-                <img src="img/interest01.png" />
+                <img src="/index/img/interest01.png" />
             </div>
             <div class="yui3-u row-225 Interest-conver-split">
                 <h5>好东西</h5>
-                <img src="img/interest02.png" />
-                <img src="img/interest03.png" />
+                <img src="/index/img/interest02.png" />
+                <img src="/index/img/interest03.png" />
             </div>
             <div class="yui3-u row-405 Interest-conver-split blockgary">
                 <h5>品牌街</h5>
                 <div class="split-bt">
-                    <img src="img/interest04.png" />
+                    <img src="/index/img/interest04.png" />
                 </div>
                 <div class="x-img fl">
-                    <img src="img/interest05.png" />
+                    <img src="/index/img/interest05.png" />
                 </div>
                 <div class="x-img fr">
-                    <img src="img/interest06.png" />
+                    <img src="/index/img/interest06.png" />
                 </div>
             </div>
             <div class="yui3-u row-165 brandArea">
                 <span class="brand-yline"></span>
                 <ul class="yui3-g brand-list">
-                    <li class="yui3-u-1-2 brand-pit"><img src="img/brand01.png" /></li>
-                    <li class="yui3-u-1-2 brand-pit"><img src="img/brand02.png" /></li>
-                    <li class="yui3-u-1-2 brand-pit"><img src="img/brand03.png" /></li>
-                    <li class="yui3-u-1-2 brand-pit"><img src="img/brand04.png" /></li>
-                    <li class="yui3-u-1-2 brand-pit"><img src="img/brand05.png" /></li>
-                    <li class="yui3-u-1-2 brand-pit"><img src="img/brand06.png" /></li>
-                    <li class="yui3-u-1-2 brand-pit"><img src="img/brand07.png" /></li>
-                    <li class="yui3-u-1-2 brand-pit"><img src="img/brand08.png" /></li>
-                    <li class="yui3-u-1-2 brand-pit"><img src="img/brand09.png" /></li>
-                    <li class="yui3-u-1-2 brand-pit"><img src="img/brand10.png" /></li>
-                    <li class="yui3-u-1-2 brand-pit"><img src="img/brand11.png" /></li>
-                    <li class="yui3-u-1-2 brand-pit"><img src="img/brand12.png" /></li>
-                    <li class="yui3-u-1-2 brand-pit"><img src="img/brand13.png" /></li>
-                    <li class="yui3-u-1-2 brand-pit"><img src="img/brand03.png" /></li>
+                    <li class="yui3-u-1-2 brand-pit"><img src="/index/img/brand01.png" /></li>
+                    <li class="yui3-u-1-2 brand-pit"><img src="/index/img/brand02.png" /></li>
+                    <li class="yui3-u-1-2 brand-pit"><img src="/index/img/brand03.png" /></li>
+                    <li class="yui3-u-1-2 brand-pit"><img src="/index/img/brand04.png" /></li>
+                    <li class="yui3-u-1-2 brand-pit"><img src="/index/img/brand05.png" /></li>
+                    <li class="yui3-u-1-2 brand-pit"><img src="/index/img/brand06.png" /></li>
+                    <li class="yui3-u-1-2 brand-pit"><img src="/index/img/brand07.png" /></li>
+                    <li class="yui3-u-1-2 brand-pit"><img src="/index/img/brand08.png" /></li>
+                    <li class="yui3-u-1-2 brand-pit"><img src="/index/img/brand09.png" /></li>
+                    <li class="yui3-u-1-2 brand-pit"><img src="/index/img/brand10.png" /></li>
+                    <li class="yui3-u-1-2 brand-pit"><img src="/index/img/brand11.png" /></li>
+                    <li class="yui3-u-1-2 brand-pit"><img src="/index/img/brand12.png" /></li>
+                    <li class="yui3-u-1-2 brand-pit"><img src="/index/img/brand13.png" /></li>
+                    <li class="yui3-u-1-2 brand-pit"><img src="/index/img/brand03.png" /></li>
                 </ul>
             </div>
         </div>
@@ -774,13 +774,13 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="active item">
-                                    <img src="img/floor-1-b01.png">
+                                    <img src="/index/img/floor-1-b01.png">
                                 </div>
                                 <div class="item">
-                                    <img src="img/floor-1-b02.png">
+                                    <img src="/index/img/floor-1-b02.png">
                                 </div>
                                 <div class="item">
-                                    <img src="img/floor-1-b03.png">
+                                    <img src="/index/img/floor-1-b03.png">
                                 </div>
                             </div>
                             <a href="#floorCarousel" data-slide="prev" class="carousel-control left">‹</a>
@@ -790,22 +790,22 @@
                     <div class="yui3-u row-220 split">
                         <span class="floor-x-line"></span>
                         <div class="floor-conver-pit">
-                            <img src="img/floor-1-2.png" />
+                            <img src="/index/img/floor-1-2.png" />
                         </div>
                         <div class="floor-conver-pit">
-                            <img src="img/floor-1-3.png" />
+                            <img src="/index/img/floor-1-3.png" />
                         </div>
                     </div>
                     <div class="yui3-u row-218 split">
-                        <img src="img/floor-1-4.png" />
+                        <img src="/index/img/floor-1-4.png" />
                     </div>
                     <div class="yui3-u row-220 split">
                         <span class="floor-x-line"></span>
                         <div class="floor-conver-pit">
-                            <img src="img/floor-1-5.png" />
+                            <img src="/index/img/floor-1-5.png" />
                         </div>
                         <div class="floor-conver-pit">
-                            <img src="img/floor-1-6.png" />
+                            <img src="/index/img/floor-1-6.png" />
                         </div>
                     </div>
                 </div>
@@ -873,7 +873,7 @@
                             <li>滚筒洗衣机</li>
                             <li>电热水器</li>
                         </ul>
-                        <img src="img/floor-1-1.png" />
+                        <img src="/index/img/floor-1-1.png" />
                     </div>
                     <div class="yui3-u row-330 floorBanner">
                         <div id="floorCarousell" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
@@ -884,13 +884,13 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="active item">
-                                    <img src="img/floor-1-b01.png">
+                                    <img src="/index/img/floor-1-b01.png">
                                 </div>
                                 <div class="item">
-                                    <img src="img/floor-1-b02.png">
+                                    <img src="/index/img/floor-1-b02.png">
                                 </div>
                                 <div class="item">
-                                    <img src="img/floor-1-b03.png">
+                                    <img src="/index/img/floor-1-b03.png">
                                 </div>
                             </div>
                             <a href="#floorCarousell" data-slide="prev" class="carousel-control left">‹</a>
@@ -900,22 +900,22 @@
                     <div class="yui3-u row-220 split">
                         <span class="floor-x-line"></span>
                         <div class="floor-conver-pit">
-                            <img src="img/floor-1-2.png" />
+                            <img src="/index/img/floor-1-2.png" />
                         </div>
                         <div class="floor-conver-pit">
-                            <img src="img/floor-1-3.png" />
+                            <img src="/index/img/floor-1-3.png" />
                         </div>
                     </div>
                     <div class="yui3-u row-218 split">
-                        <img src="img/floor-1-4.png" />
+                        <img src="/index/img/floor-1-4.png" />
                     </div>
                     <div class="yui3-u row-220 split">
                         <span class="floor-x-line"></span>
                         <div class="floor-conver-pit">
-                            <img src="img/floor-1-5.png" />
+                            <img src="/index/img/floor-1-5.png" />
                         </div>
                         <div class="floor-conver-pit">
-                            <img src="img/floor-1-6.png" />
+                            <img src="/index/img/floor-1-6.png" />
                         </div>
                     </div>
                 </div>
@@ -949,17 +949,17 @@
     <div class="py-container">
         <ul class="Brand-list blockgary">
             <li class="Brand-item">
-                <img src="img/brand_21.png" />
+                <img src="/index/img/brand_21.png" />
             </li>
-            <li class="Brand-item"><img src="img/brand_03.png" /></li>
-            <li class="Brand-item"><img src="img/brand_05.png" /></li>
-            <li class="Brand-item"><img src="img/brand_07.png" /></li>
-            <li class="Brand-item"><img src="img/brand_09.png" /></li>
-            <li class="Brand-item"><img src="img/brand_11.png" /></li>
-            <li class="Brand-item"><img src="img/brand_13.png" /></li>
-            <li class="Brand-item"><img src="img/brand_15.png" /></li>
-            <li class="Brand-item"><img src="img/brand_17.png" /></li>
-            <li class="Brand-item"><img src="img/brand_19.png" /></li>
+            <li class="Brand-item"><img src="/index/img/brand_03.png" /></li>
+            <li class="Brand-item"><img src="/index/img/brand_05.png" /></li>
+            <li class="Brand-item"><img src="/index/img/brand_07.png" /></li>
+            <li class="Brand-item"><img src="/index/img/brand_09.png" /></li>
+            <li class="Brand-item"><img src="/index/img/brand_11.png" /></li>
+            <li class="Brand-item"><img src="/index/img/brand_13.png" /></li>
+            <li class="Brand-item"><img src="/index/img/brand_15.png" /></li>
+            <li class="Brand-item"><img src="/index/img/brand_17.png" /></li>
+            <li class="Brand-item"><img src="/index/img/brand_19.png" /></li>
         </ul>
     </div>
 </div>
