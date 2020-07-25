@@ -97,7 +97,7 @@ class MentController extends Controller
     {
         $mentcate=Ment::get();
         $mentmodel = new Ment();
-        $res =DB::table('shop_ment')->leftjoin('shop_ment_cate','shop_ment_cate.shop_ment_cate_id','=','shop_ment.shop_ment_cate_id')->where(["shop_ment_del"=>2])->paginate(2);
+        $res =DB::table('shop_ment')->leftjoin('shop_ment_cate','shop_ment_cate.shop_ment_cate_id','=','shop_ment.shop_ment_cate_id')->where(["shop_ment_del"=>2])->paginate(5);
 //        print_r($res);
         return view('admin.ment.mentlist',['res'=>$res,"mentcate"=>$mentcate]);
     }
