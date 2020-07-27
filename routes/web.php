@@ -160,3 +160,4 @@ Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
 
 
 Route::any('/index/index','Index\IndexController@index');
+Route::any('/index/item','Index\IndexController@item');

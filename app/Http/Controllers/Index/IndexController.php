@@ -15,7 +15,11 @@ class IndexController extends Controller
     public function index(Request $request){
 
 //        $res = DB::table('shop_ment')->where('shop_ment_img')-
-        $res = DB::table('shop_ment')->get();
+        $res = DB::table('shop_ment')->limit(6)->get();
        return view('index/index',['data'=>$res]);
+    }
+    public function item(Request $request)
+    {
+        return view('index/item');
     }
 }
