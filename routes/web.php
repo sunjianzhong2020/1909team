@@ -167,9 +167,6 @@ Route::any('admin/friend_del','Admin\FriendController@friend_del');
 //导航栏
 Route::any('admin/banneradd','Admin\BannerController@banneradd');
 Route::any('admin/bannerdo','Admin\BannerController@bannerdo');
-
 Route::any('admin/bannershow','Admin\BannerController@bannershow');
-
-Route::any('/admin/bannerdel','Admin\BannerController@bannerdel');
-
+Route::any('admin/bannerdel','Admin\BannerController@bannerdel');
 

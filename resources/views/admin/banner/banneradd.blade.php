@@ -99,6 +99,8 @@
             data.b_name = $("input[name='b_name']").val();
             data.b_url = $("input[name='b_url']").val();
             data.is_show = $("input[name='is_show']:checked").val();
+            // alert(data.is_show);
+            // return false;
             var url = '/admin/bannerdo';
             $.ajax({
                 url:url,
