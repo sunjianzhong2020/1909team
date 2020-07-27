@@ -9,5 +9,12 @@ use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function api($status = 1 , $msg = 'fail' , $data = [])
+    {
+        return [
+            'code' => $status,
+            'message' => $msg,
+            'resault' => $data
+        ];
+    }
 }
