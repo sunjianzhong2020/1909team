@@ -14,6 +14,7 @@ class IndexController extends Controller
      * 前台模板
      */
     public function index(Request $request){
+
         //今日推荐
         $day_where=[
             ['is_show','=',1],
@@ -55,5 +56,14 @@ class IndexController extends Controller
        return view('index/index',['data'=>$res,'day_data'=>$day_data,'like_data'=>$like_data,'g_data'=>$g_data,'good_data'=>$good_data
        ,'three_data'=>$three_data,'street_data'=>$street_data,'street_two_data'=>$street_two_data,'watch'=>$watch,'k_data'=>$k_data,'big_data'=>$big_data
        ,'s_data'=>$s_data]);
+
+
+//        $res = DB::table('shop_ment')->where('shop_ment_img')-
+        $res = DB::table('shop_ment')->limit(6)->get();
+       return view('index/index',['data'=>$res]);
+    }
+    public function item(Request $request)
+    {
+        return view('index/item');
     }
 }

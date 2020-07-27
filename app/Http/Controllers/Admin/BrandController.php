@@ -103,7 +103,7 @@ class BrandController extends CommonController
         $where=[
             ['shop_brand.status','=',1]
         ];
-        $data = Brand::leftjoin('shop_cate','shop_cate.c_id','=','shop_brand.c_id')->where($where)->paginate(2);
+        $data = Brand::leftjoin('shop_cate','shop_cate.c_id','=','shop_brand.c_id')->where($where)->paginate(6);
 //        dd($data);
         return view('admin/brand/brandShow',['data' => $data]);
     }
