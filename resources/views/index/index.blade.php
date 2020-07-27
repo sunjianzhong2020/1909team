@@ -401,22 +401,22 @@
                         <li data-target="#myCarousel" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
-                        <div class="active item">
-                            <a href="http://baidu2.wypxj.com/">
-                                <img src="/index/img/banner1.jpg"  />
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="http://baidu2.wypxj.com/">
-                                <img src="/index/img/banner2.jpg"  />
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="http://baidu2.wypxj.com/">
-                                <img src="/index/img/banner3.jpg"  />
-                            </a>
+                        @foreach($data as $k=>$v)
+                          @if($k == 0)
+                                <div class="item active">
+                                    <a href="{{$v->shop_ment_url}}">
+                                        <img src="{{$v->shop_ment_img}}" style="width:730px;height:454px" />
+                                    </a>
+                                </div>
+                              @else
+                                <div class="item">
+                                <a href="{{$v->shop_ment_url}}">
+                                    <img src="{{$v->shop_ment_img}}" style="width:730px;height:454px" />
+                                </a>
+                            </div>
+                            @endif
 
-                        </div>
+                            @endforeach
                     </div><a href="#myCarousel" data-slide="prev" class="carousel-control left">‹</a><a href="#myCarousel" data-slide="next" class="carousel-control right">›</a>
                 </div>
             </div>
