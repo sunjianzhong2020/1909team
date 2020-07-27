@@ -160,3 +160,5 @@ Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
 
 
 Route::any('/index/index','Index\IndexController@index');
+//商品的详情页
+Route::any('/goods/goodsInfo','Index\GoodsController@goodsInfo');
