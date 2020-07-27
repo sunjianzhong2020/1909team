@@ -45,6 +45,7 @@
                 </th>
                 <th class="sorting_asc">品牌id</th>
                 <th class="sorting">品牌名称</th>
+                <th class="sorting">品牌图片</th>
                 <th class="sorting">品牌网址</th>
                 <th class="sorting">是否显示</th>
                 <th class="sorting">描述</th>
@@ -58,6 +59,7 @@
                 <td><input  type="checkbox"></td>
                 <td>{{$v->b_id}}</td>
                 <td>{{$v->b_name}}</td>
+                <td><img src="{{$v->b_img}}" width="40" alt=""></td>
                 <td>{{$v->b_url}}</td>
                 <td>{{$v->is_show==1 ? "√" : "×"}}</td>
                 <td>{{$v->b_desc}}</td>
@@ -70,6 +72,7 @@
             @endforeach
             </tbody>
         </table>
+        {{$data->links()}}
         <!--数据列表/-->
     </div>
     <!-- 数据表格 /-->

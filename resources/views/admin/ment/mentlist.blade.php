@@ -58,17 +58,22 @@
                 <th class="sorting">标题</th>
                 <th class="sorting">URL</th>
                 <th class="sorting">状态是否有效</th>
+                <th class="sorting">图片</th>
                 <th class="text-center">操作</th>
             </tr>
             </thead>
             <tbody>
             @foreach($res as $k => $v)
-            <tr>
+            <tr shop_id="{{$v->shop_ment_id}}">
                 <td>{{$v->shop_ment_id}}</td>
                 <td>{{$v->shop_ment_cate_name}}</td>
-                <td>{{$v->shop_ment_title}}</td>
+                <td shop_title="shop_ment_title">
+                    <span class="span_title">{{$v->shop_ment_title}}</span>
+                <input type="text" class="input_title" value="{{$v->shop_ment_title}}" style="display:none">
+                </td>
                 <td>{{$v->shop_ment_url}}</td>
                 <td>{{$v->shop_ment_del==1?'否':'是'}}</td>
+                <td><img src="{{$v->shop_ment_img}}" alt="" width="122px"></td>
                 <td class="text-center">
                     <a href="{{url('/ment/mentedit/'.$v->shop_ment_id)}}"><button type="button" class="btn btn-primary">修改</button></a>
                     <a href="{{url('ment/mentdel/'.$v->shop_ment_id)}}"><button type="button" class="btn btn-danger">删除</button></a>
@@ -154,6 +159,7 @@
 </body>
 
 </html>
+
 <script>
     $(document).ready(function(){
         $('#shop_ment_img').uploadify({
@@ -161,7 +167,8 @@
             'uploader' : "/ment/mentupload",
             'buttonText':"选择图片",
             onUploadSuccess : function(msg,newFilePath,info){
-                console.log(newFilePath);
+//                console.log(newFilePath);
+                img2 = newFilePath;
             }
 
         })
@@ -171,6 +178,8 @@
         var shop_ment_title = $('#shop_ment_title').val();
         var shop_ment_url = $('#shop_ment_url').val();
         var shop_ment_del = $('#shop_ment_del:checked').val();
+        var shop_ment_img = img2;
+//        alert(shop_ment_img);
         //alert(shop_ment_del);false;
         if(!shop_ment_title){
             alert('标题不能为空');
@@ -184,13 +193,13 @@
 
         $.ajax({
             url:"/ment/mentadd",
-            data:{'shop_ment_cate_id':shop_ment_cate_id,'shop_ment_title':shop_ment_title,'shop_ment_url':shop_ment_url,'shop_ment_del':shop_ment_del},
+            data:{'shop_ment_cate_id':shop_ment_cate_id,'shop_ment_title':shop_ment_title,'shop_ment_url':shop_ment_url,'shop_ment_del':shop_ment_del,'shop_ment_img':shop_ment_img},
             type:"post",
             dataType:'json',
             success:function(res){
                 console.log(res);
 //                return false;
-                if(res['errno']==00000){
+                if(res['errno']=='00000'){
                     alert(res['msg']);
                     location.href="mentlist";
                 }else{
@@ -202,4 +211,47 @@
         })
 
     })
+    //根据点击事件获取span标签
+    $(document).on('click',".span_title",function(){
+        //获取span标签
+       var _this = $(this);
+        //获取span标签的值
+        var _zjx = _this.text();
+        //对span标签进行隐藏
+        _this.hide();
+        //让input框携带span值对input框进行展示
+        _this.next('input').val(_zjx).show();
+    })
+    //然后使用鼠标失去焦点事件对标题进行修改
+    $(document).on('blur',".input_title",function(){
+        //获取到这个input框
+        var _this = $(this);
+        //获取到这个input框的新值
+        var new_value = _this.val();
+        //根据input框找到它的父节点 获取到父节点的值 因为要改他的标题
+        var shop_title = _this.parent('td').attr('shop_title');
+        //根据input框找到它的父节点 获取到祖先节点的值 因为要根据id进行修改
+        var shop_id = _this.parents('tr').attr('shop_id');
+        //console.log(shop_id);
+        $.ajax({
+            url:"/ment/changevalue",
+            data:{'new_value':new_value,'shop_title':shop_title,'shop_id':shop_id},
+            type:"post",
+            dataType:'json',
+            success:function(res){
+                if(res['errno']=='00000'){
+                    alert(res['msg']);
+                    _this.hide();
+                   _this.prev('span').text(new_value).show();
+                }else{
+                    alert(res['msg']);
+                    _this.hide();
+                    _this.prev('span').show();
+                    location.href="mentlist";
+                }
+
+            }
+        })
+    })
+
 </script>

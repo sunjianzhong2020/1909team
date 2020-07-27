@@ -11,21 +11,21 @@
 </head>
 <body>
 
-<form>
+
 <div class="form-group">
         <label for="exampleInputEmail1">权限名称</label>
-        <input type="text" class="form-control" id="priv_name" aria-describedby="emailHelp">
+        <input type="text" class="form-control" id="priv_name" aria-describedby="emailHelp" placeholder="请输入权限名称...">
 
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">权限路由</label>
-        <input type="text" class="form-control" id="priv_url" aria-describedby="emailHelp">
+        <input type="text" class="form-control" id="priv_url" aria-describedby="emailHelp" placeholder="请输入权限路由...">
 
     </div>
 
 
     <button type="submit" class="btn btn-primary" id="add">添加</button>
-</form>
+
 
 </body>
 <Script>
@@ -35,10 +35,7 @@
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
             }
         });
-        // //权限列表展示
-        // $(document).on('click','#priv_show',function(){
-        //     location.href="/priv/privIndex";
-        // })
+
         $(document).on('click','#add',function(){
             var priv_name=$("#priv_name").val();
             var priv_url=$("#priv_url").val();
@@ -61,7 +58,6 @@
                 type:'post',
                 dataType:'json',
                 success:function(result){
-
                     if(result['code']==200){
                         alert(result.message);
                         location.href="/priv/privIndex";

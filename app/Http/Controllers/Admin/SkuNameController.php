@@ -54,7 +54,29 @@ class SkuNameController extends CommonController
      */
     public function SkuNameShow(Request $request)
     {
-        $data = SkuName::get();
+        $where=[
+            ['status','=',1]
+        ];
+        $data = SkuName::where($where)->get();
         return view('admin/SkuName/SkuNameShow',['data'=>$data]);
+    }
+
+    /**
+     * @param Request $request
+     * @return array
+     * 属性名删除
+     */
+    public function SkuNameDel(Request $request)
+    {
+        $arr = $request -> all();
+//        dd($arr);
+        $id = $arr['id'];
+        $data = SkuName::where('sku_name_id',$id)->update(['status' => 2]);
+        if($data){
+            return $this->apiOutPut('200','删除成功',$data);
+        }else{
+            return $this->apiOutPut('000001','删除失败');
+        }
+
     }
 }

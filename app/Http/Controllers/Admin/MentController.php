@@ -97,7 +97,7 @@ class MentController extends Controller
     {
         $mentcate=Ment::get();
         $mentmodel = new Ment();
-        $res =DB::table('shop_ment')->leftjoin('shop_ment_cate','shop_ment_cate.shop_ment_cate_id','=','shop_ment.shop_ment_cate_id')->where(["shop_ment_del"=>2])->paginate(2);
+        $res =DB::table('shop_ment')->leftjoin('shop_ment_cate','shop_ment_cate.shop_ment_cate_id','=','shop_ment.shop_ment_cate_id')->where(["shop_ment_del"=>2])->paginate(5);
 //        print_r($res);
         return view('admin.ment.mentlist',['res'=>$res,"mentcate"=>$mentcate]);
     }
@@ -106,7 +106,7 @@ class MentController extends Controller
 
 
         $bb = $request->all();
-//        dd($bb);s
+//        dd($bb);
         $mentmodels = new Mentmodels();
 //        $shop_ment_url = $request->shop_ment_url;
         $on = DB::table('shop_ment')->where('shop_ment_url', $bb['shop_ment_url'])->first();
@@ -178,14 +178,27 @@ class MentController extends Controller
         $ext = explode(".", $fileinfo['name'])[1];
         #新文件名字
         $newFileName = md5(uniqid()) . "." . $ext;
-        $newFilePath = "./uploads/" . Date("Y/m/d", time());
+        $newFilePath = "./imgs/" . Date("Y/m/d", time());
         if (!is_dir($newFilePath)) {
             mkdir($newFilePath, 0777, true);
         }
         $newFilePath = $newFilePath . $newFileName;
         move_uploaded_file($tmpName, $newFilePath);
         $newFilePath = ltrim($newFilePath);
+        $newFilePath = trim($newFilePath,'.');
         echo $newFilePath;
     }
-
+    public function changevalue(Request $request)
+    {
+        $shop_id = $request->post('shop_id');
+        $shop_title = $request->post('shop_title');
+        $shop_value = $request->post('new_value');
+        $res=DB::table('shop_ment')->where('shop_ment_id',$shop_id)->update([$shop_title=>$shop_value]);
+        if($res){
+            echo json_encode(['errno' => 00000, 'msg' => '成功']);
+        }else{
+            echo json_encode(['errno' => 00001, 'msg' => '失败']);
+            exit;
+        }
+    }
 }

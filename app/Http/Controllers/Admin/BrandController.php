@@ -40,6 +40,7 @@ class BrandController extends CommonController
         $newFilePath = $newFilePath . $newFileName;
         move_uploaded_file($tmpName, $newFilePath);
         $newFilePath = ltrim($newFilePath);
+        $newFilePath = trim($newFilePath,'.');
         echo $newFilePath;
     }
 
@@ -69,9 +70,11 @@ class BrandController extends CommonController
         }
         $c_id = $arr['c_id'];
         $is_show = $arr['is_show'];
+        $b_img2 = $arr['b_img2'];
         $data['b_name'] = $b_name;
         $data['b_url'] = $b_url;
         $data['b_desc'] = $b_desc;
+        $data['b_img'] = $b_img2;
         $data['c_id'] = $c_id;
         $data['is_show'] = $is_show;
         $data['add_time'] = time();
@@ -100,7 +103,7 @@ class BrandController extends CommonController
         $where=[
             ['shop_brand.status','=',1]
         ];
-        $data = Brand::leftjoin('shop_cate','shop_cate.c_id','=','shop_brand.c_id')->where($where)->get();
+        $data = Brand::leftjoin('shop_cate','shop_cate.c_id','=','shop_brand.c_id')->where($where)->paginate(2);
 //        dd($data);
         return view('admin/brand/brandShow',['data' => $data]);
     }

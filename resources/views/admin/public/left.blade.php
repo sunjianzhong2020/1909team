@@ -21,7 +21,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu"  >
             <li class="header">菜单</li>
-            <li id="admin-index"><a href="{{url('/')}}"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+            <li id="admin-index"><a href="{{url('/index/index')}}"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
             <!-- 菜单 -->
             <li class="treeview">
@@ -30,17 +30,25 @@
                     <span>友情链接管理</span>
                     <span class="pull-right-container">
 				       			<i class="fa fa-angle-left pull-right"></i>
-				   		 	</span>
+                    </span>
                 </a>
                 <ul class="treeview-menu">
 
                     <li id="admin-login">
-                        <a href="{{url('/admin/friendAdd')}}" target="iframe">
+
+                        <a href="{{url('/admin/friendAdd')}}" target="iframe"></a>
+
+                        <a href="seller.html" target="iframe">
+
                             <i class="fa fa-circle-o"></i>友情链接添加
                         </a>
                     </li>
                     <li id="admin-login">
-                        <a href="{{url('/admin/friendShow')}}" target="iframe">
+
+                        <a href="{{url('/admin/friendShow')}}" target="iframe"></a>
+
+                        <a href="seller.html" target="iframe">
+
                             <i class="fa fa-circle-o"></i>友情链接展示
                         </a>
                     </li>
@@ -67,13 +75,13 @@
                         </a>
                     </li>
                     <li id="admin-login">
-                        <a href="/admin/cateAdd" target="iframe">
-                            <i class="fa fa-circle-o"></i>规格管理
+                        <a href="{{url('/admin/goodsAdd')}}" target="iframe">
+                            <i class="fa fa-circle-o"></i>商品添加
                         </a>
                     </li>
                     <li id="admin-login">
-                        <a href="type_template.html" target="iframe">
-                            <i class="fa fa-circle-o"></i>模板管理
+                        <a href="{{url('/admin/goodsShow')}}" target="iframe">
+                            <i class="fa fa-circle-o"></i>商品展示
                         </a>
                     </li>
                     <li id="admin-login">
@@ -97,6 +105,24 @@
                             <i class="fa fa-circle-o"></i>商品属性展示表
                         </a>
                     </li>
+
+                    <li id="admin-login">
+                        <a href="{{url('/admin/SkuValAdd')}}" target="iframe">
+                            <i class="fa fa-circle-o"></i>商品属性值添加表
+                        </a>
+                    </li>
+
+                    <li id="admin-login">
+                        <a href="{{url('/admin/SkuValShow')}}" target="iframe">
+                            <i class="fa fa-circle-o"></i>商品属性值展示表
+                        </a>
+                    </li>
+                    <li id="admin-login">
+                        <a href="{{url('/admin/skuAdd')}}" target="iframe">
+                            <i class="fa fa-circle-o"></i>SKU添加表
+                        </a>
+                    </li>
+
                 </ul>
             </li>
 
