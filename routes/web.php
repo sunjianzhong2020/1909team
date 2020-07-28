@@ -158,5 +158,21 @@ Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
     Route::any('quit','LoginController@quit');
 });
 
+//友情链接
+Route::any('admin/friendAdd','Admin\FriendController@friendAdd');
+Route::any('admin/friendAdd_do','Admin\FriendController@friendAdd_do');
+Route::any('admin/friendShow','Admin\FriendController@friendShow');
+Route::any('admin/friend_del','Admin\FriendController@friend_del');
+
+//导航栏
+Route::any('admin/banneradd','Admin\BannerController@banneradd');
+Route::any('admin/bannerdo','Admin\BannerController@bannerdo');
+Route::any('admin/bannershow','Admin\BannerController@bannershow');
+Route::any('admin/bannerdel','Admin\BannerController@bannerdel');
 
 Route::any('/index/index','Index\IndexController@index');
+
+//商品的详情页
+Route::any('/goods/goodsInfo','Index\GoodsController@goodsInfo');
+Route::any('/index/item','Index\IndexController@item');
+
