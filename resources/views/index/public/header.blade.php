@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="/index/css/pages-JD-index.css" />
     <link rel="stylesheet" type="text/css" href="/index/css/widget-jquery.autocomplete.css" />
     <link rel="stylesheet" type="text/css" href="/index/css/widget-cartPanelView.css" />
+    <link rel="stylesheet" type="text/css" href="/index/css/pages-zoom.css" />
 </head>
 
 <body>

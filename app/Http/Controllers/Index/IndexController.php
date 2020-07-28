@@ -21,7 +21,9 @@ class IndexController extends Controller
 
         //广告
 
-        $ment = DB::table('shop_ment')->limit(6)->get();
+        $ment = DB::table('shop_ment')
+            ->leftjoin('shop_goods','shop_goods.goods_id','=','shop_ment.goods_id')
+            ->limit(6)->get();
         //分类展示
         $cate=DB::table('shop_cate')->get()->toArray();
         //导航栏
@@ -66,24 +68,12 @@ class IndexController extends Controller
         $three_data=$goods_model::where($where)->whereIn('goods_id',[18,19,20])->get();
 
 
-        $res = DB::table('shop_ment')->limit(6)->get();
-//        print_r($res);die;
 
-        $res = DB::table('shop_ment')->get();
-
-       return view('index/index',['data'=>$res,'day_data'=>$day_data,'like_data'=>$like_data,'g_data'=>$g_data,'good_data'=>$good_data
+       return view('index/index',['day_data'=>$day_data,'like_data'=>$like_data,'g_data'=>$g_data,'good_data'=>$good_data
        ,'three_data'=>$three_data,'street_data'=>$street_data,'street_two_data'=>$street_two_data,'watch'=>$watch,'k_data'=>$k_data,'big_data'=>$big_data
        ,'s_data'=>$s_data,'ment'=>$ment,'cate'=>$cate,'banner'=>$banner]);
 
     }
 
-    /**
-     * 广告的详情页面
-     * @param  Request $request [description]
-     * @return [type]           [description]
-     */
-    public function item(Request $request)
-    {
-        return view('index/item');
-    }
+
 }

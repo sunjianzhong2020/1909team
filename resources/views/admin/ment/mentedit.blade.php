@@ -5,7 +5,9 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
     <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="/js/uploadify/uploadify.css">
+    <script src="/js/uploadify/jquery.js"></script>
+    <script src="/js/uploadify/jquery.uploadify.js"></script>
 
         <div class="modal-content">
             <div class="modal-header">
@@ -41,13 +43,8 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <input type="file" id="file" />
-                                        <button class="btn btn-primary" type="button" ng-click="uploadFile()">
-                                            上传
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <img  src="" width="200px" height="100px">
+                                        <input type="file" id="shop_ment_img" />
+                                        <img src="" alt="" id="imgs">
                                     </td>
                                 </tr>
                             </table>
@@ -67,14 +64,27 @@
                 <button class="btn btn-success" data-dismiss="modal" aria-hidden="true" id="btn">修改</button>
                 <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
             </div>
-
-            <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
             <script>
+                $(document).ready(function(){
+                    $('#shop_ment_img').uploadify({
+                        'swf':  "/js/uploadify/uploadify.swf",
+                        'uploader' : "/ment/mentupload",
+                        'buttonText':"选择图片",
+                        onUploadSuccess : function(msg,newFilePath,info){
+//                console.log(newFilePath);
+                            img2 = newFilePath;
+                        }
+
+                    })
+                })
                 $(document).on('click','#btn',function(){
                     var shop_ment_id = $('#shop_ment_id').val();
                     var shop_ment_cate_id = $('#shop_ment_cate_id').val();
                     var shop_ment_title = $('#shop_ment_title').val();
                     var shop_ment_url = $('#shop_ment_url').val();
+                    var shop_ment_img = img2;
+//                   alert(shop_ment_img)
+//                    return
                     var shop_ment_del = $('#shop_ment_del:checked').val();
                     //alert(shop_ment_del);false;
                     if(!shop_ment_title){
@@ -89,7 +99,7 @@
 
                     $.ajax({
                         url:"/ment/mentupdate",
-                        data:{'shop_ment_id':shop_ment_id,'shop_ment_cate_id':shop_ment_cate_id,'shop_ment_title':shop_ment_title,'shop_ment_url':shop_ment_url,'shop_ment_del':shop_ment_del},
+                        data:{'shop_ment_id':shop_ment_id,'shop_ment_cate_id':shop_ment_cate_id,'shop_ment_title':shop_ment_title,'shop_ment_url':shop_ment_url,'shop_ment_del':shop_ment_del,'shop_ment_img':shop_ment_img},
                         type:"post",
                         dataType:'json',
                         success:function(res){
@@ -107,4 +117,5 @@
                     })
 
                 })
+
             </script>
