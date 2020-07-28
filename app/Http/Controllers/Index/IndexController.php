@@ -13,7 +13,21 @@ class IndexController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * 前台模板
      */
-    public function index(Request $request){
+
+    public function index(Request $request)
+    {
+
+        //$res = DB::table('shop_ment')->where('shop_ment_img')-
+
+        //广告
+
+        $ment = DB::table('shop_ment')->limit(6)->get();
+        //分类展示
+        $cate=DB::table('shop_cate')->get()->toArray();
+        //导航栏
+        $banner=DB::table('shop_banner')->get();
+
+
 
         //今日推荐
         $day_where=[
@@ -54,14 +68,18 @@ class IndexController extends Controller
         $three_data=$goods_model::where($where)->whereIn('goods_id',[18,19,20])->get();
         $res = DB::table('shop_ment')->limit(6)->get();
 //        print_r($res);die;
-       return view('index/index',['data'=>$res, 'day_data'=>$day_data, 'like_data'=>$like_data,'g_data'=>$g_data,'good_data'=>$good_data
-       ,'three_data'=>$three_data,'street_data'=>$street_data,'street_two_data'=>$street_two_data,'watch'=>$watch,'k_data'=>$k_data,
-           'big_data'=>$big_data,'s_data'=>$s_data]);
 
 
 //        $res = DB::table('shop_ment')->where('shop_ment_img')-
 //        $res = DB::table('shop_ment')->limit(6)->get();
 //       return view('index/index',['data'=>$res]);
+
+        $res = DB::table('shop_ment')->get();
+
+       return view('index/index',['data'=>$res,'day_data'=>$day_data,'like_data'=>$like_data,'g_data'=>$g_data,'good_data'=>$good_data
+       ,'three_data'=>$three_data,'street_data'=>$street_data,'street_two_data'=>$street_two_data,'watch'=>$watch,'k_data'=>$k_data,'big_data'=>$big_data
+       ,'s_data'=>$s_data,'ment'=>$ment,'cate'=>$cate,'banner'=>$banner]);
+
     }
     public function item(Request $request)
     {

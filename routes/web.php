@@ -172,7 +172,14 @@ Route::any('admin/bannerdel','Admin\BannerController@bannerdel');
 
 Route::any('/index/index','Index\IndexController@index');
 
+Route::any('/index/reg','Index\RegisterController@regAdd');
+Route::any('/index/verify','Index\RegisterController@verify');
+Route::any('/index/regAdd_do','Index\RegisterController@regAdd_do');
+Route::any('/index/logAdd','Index\LoginController@loginAdd');
+
+
 //商品的详情页
 Route::any('/goods/goodsInfo/{id}','Index\GoodsController@goodsInfo');
 Route::any('/index/item','Index\IndexController@item');
+
 
