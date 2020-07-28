@@ -6,9 +6,9 @@
         <div class="yui3-g SortList ">
             <div class="yui3-u Left all-sort-list">
                 <div class="all-sort-list2">
-                   
+
                     @foreach($cate as $k=>$v)
-                
+
                     <div class="item bo">
                         <h3><a href="">{{$v->c_name}}</a></h3>
                         <div class="item-list clearfix">
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     @endforeach
-                 
+
                 </div>
             </div>
             <div class="yui3-u Center banerArea">
@@ -50,7 +50,7 @@
                             @endif
 
                             @endforeach
-                        
+
                     </div><a href="#myCarousel" data-slide="prev" class="carousel-control left">‹</a><a href="#myCarousel" data-slide="next" class="carousel-control right">›</a>
                 </div>
             </div>

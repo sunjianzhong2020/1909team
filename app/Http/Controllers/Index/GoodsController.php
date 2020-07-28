@@ -24,6 +24,7 @@ class GoodsController extends Controller
             ->leftjoin('shop_sku_name','shop_sku_name.sku_name_id','=','shop_sku_val.sku_name_id')
             ->where($where)
             ->first();
+//        print_r($goods_info);die;
         //猜你喜欢
         $like_where=[
             ['is_show','=',1],

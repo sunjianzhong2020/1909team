@@ -66,17 +66,7 @@ class IndexController extends Controller
         $s_data=$goods_model::where($where)->whereIn('goods_id',[24,25])->get();
         //轮播图
         $three_data=$goods_model::where($where)->whereIn('goods_id',[18,19,20])->get();
-        $res = DB::table('shop_ment')->limit(6)->get();
-//        print_r($res);die;
-
-
-//        $res = DB::table('shop_ment')->where('shop_ment_img')-
-//        $res = DB::table('shop_ment')->limit(6)->get();
-//       return view('index/index',['data'=>$res]);
-
-        $res = DB::table('shop_ment')->get();
-
-       return view('index/index',['data'=>$res,'day_data'=>$day_data,'like_data'=>$like_data,'g_data'=>$g_data,'good_data'=>$good_data
+      return view('index/index',['day_data'=>$day_data,'like_data'=>$like_data,'g_data'=>$g_data,'good_data'=>$good_data
        ,'three_data'=>$three_data,'street_data'=>$street_data,'street_two_data'=>$street_two_data,'watch'=>$watch,'k_data'=>$k_data,'big_data'=>$big_data
        ,'s_data'=>$s_data,'ment'=>$ment,'cate'=>$cate,'banner'=>$banner]);
 

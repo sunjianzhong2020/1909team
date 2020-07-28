@@ -468,7 +468,7 @@
 </div>
 <!-- 底部栏位 -->
 <!--页面底部-->
-@include('index.public.footer');
+@include('index/public/footer');
 <!--页面底部END-->
 
 <!--侧栏面板开始-->

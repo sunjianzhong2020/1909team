@@ -5,14 +5,14 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
     <title>品优购，优质！优质！</title>
-    <link rel="icon" href="/assets/img/favicon.ico">
+    <link rel="icon" href="/index/assets/img/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/index/css/webbase.css" />
     <link rel="stylesheet" type="text/css" href="/index/css/pages-JD-index.css" />
     <link rel="stylesheet" type="text/css" href="/index/css/widget-jquery.autocomplete.css" />
     <link rel="stylesheet" type="text/css" href="/index/css/widget-cartPanelView.css" />
-    <link rel="stylesheet" type="text/css" href="/index/css/pages-zoom.css" />
-    <link rel="stylesheet" type="text/css" href="/index/css/pages-seckill-item.css" />
+
+</head>
 </head>
 
 <body>
@@ -107,11 +107,16 @@
                         <h4>全部商品分类</h4>
                     </div>
                     <div class="yui3-u Center navArea">
-                        @foreach($banner as $k=>$v)
                         <ul class="nav">
-                            <li class="f-item">{{$v->b_name}}</li>
+                            <li class="f-item">服装城</li>
+                            <li class="f-item">美妆馆</li>
+                            <li class="f-item">品优超市</li>
+                            <li class="f-item">全球购</li>
+                            <li class="f-item">闪购</li>
+                            <li class="f-item">团购</li>
+                            <li class="f-item">有趣</li>
+                            <li class="f-item"><a href="seckill-index.html" target="_blank">秒杀</a></li>
                         </ul>
-                        @endforeach
                     </div>
                     <div class="yui3-u Right"></div>
                 </div>
