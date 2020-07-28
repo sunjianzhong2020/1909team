@@ -58,7 +58,7 @@
                 <div class="news">
                     <h4><em class="fl">品优购快报</em><span class="fr tip">更多 ></span></h4>
                     <div class="clearix"></div>
-                  
+
                 </div>
                 <ul class="yui3-g Lifeservice">
                     <li class="yui3-u-1-4 life-item tab-item">
