@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
+
 use App\Models\Code;
 class Phone extends Model
 {
@@ -59,10 +59,4 @@ class Phone extends Model
             return false;
         }
     }
-=======
-
-class Phone extends Model
-{
-    //
->>>>>>> 18ff526d26034dd656404f0e4f3fe09c153f2149
 }
