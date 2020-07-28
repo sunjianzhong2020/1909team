@@ -69,11 +69,6 @@ class IndexController extends Controller
         $res = DB::table('shop_ment')->limit(6)->get();
 //        print_r($res);die;
 
-
-//        $res = DB::table('shop_ment')->where('shop_ment_img')-
-//        $res = DB::table('shop_ment')->limit(6)->get();
-//       return view('index/index',['data'=>$res]);
-
         $res = DB::table('shop_ment')->get();
 
        return view('index/index',['data'=>$res,'day_data'=>$day_data,'like_data'=>$like_data,'g_data'=>$g_data,'good_data'=>$good_data
