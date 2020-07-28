@@ -57,7 +57,15 @@
             <div class="yui3-u Right">
                 <div class="news">
                     <h4><em class="fl">品优购快报</em><span class="fr tip">更多 ></span></h4>
-                    <div class="clearix"></div>
+                    <div class="clearix">
+                        @foreach($ment as $v)
+                            <ul class="news-list unstyled">
+                                <li>
+                                    <span class="bold">[特惠]</span>{{$v->shop_ment_title}}
+                                </li>
+                            </ul>
+                        @endforeach
+                    </div>
 
                 </div>
                 <ul class="yui3-g Lifeservice">

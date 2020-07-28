@@ -27,8 +27,6 @@ class IndexController extends Controller
         //导航栏
         $banner=DB::table('shop_banner')->get();
 
-
-
         //今日推荐
         $day_where=[
             ['is_show','=',1],
@@ -74,7 +72,6 @@ class IndexController extends Controller
         $res = DB::table('shop_ment')->get();
 
        return view('index/index',['data'=>$res,'day_data'=>$day_data,'like_data'=>$like_data,'g_data'=>$g_data,'good_data'=>$good_data
-
        ,'three_data'=>$three_data,'street_data'=>$street_data,'street_two_data'=>$street_two_data,'watch'=>$watch,'k_data'=>$k_data,'big_data'=>$big_data
        ,'s_data'=>$s_data,'ment'=>$ment,'cate'=>$cate,'banner'=>$banner]);
 

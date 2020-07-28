@@ -5,14 +5,12 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
     <title>品优购，优质！优质！</title>
-    <link rel="icon" href="/index/assets/img/favicon.ico">
+    <link rel="icon" href="/assets/img/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/index/css/webbase.css" />
     <link rel="stylesheet" type="text/css" href="/index/css/pages-JD-index.css" />
     <link rel="stylesheet" type="text/css" href="/index/css/widget-jquery.autocomplete.css" />
     <link rel="stylesheet" type="text/css" href="/index/css/widget-cartPanelView.css" />
-
-</head>
 </head>
 
 <body>
