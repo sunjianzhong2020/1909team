@@ -160,3 +160,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'user'],function(){
 
 
 Route::any('/index/index','Index\IndexController@index');
+Route::any('/index/reg','Index\RegisterController@regAdd');
+Route::any('/index/verify','Index\RegisterController@verify');
+Route::any('/index/regAdd_do','Index\RegisterController@regAdd_do');
+Route::any('/index/logAdd','Index\LoginController@loginAdd');
