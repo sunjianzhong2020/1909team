@@ -173,6 +173,6 @@ Route::any('admin/bannerdel','Admin\BannerController@bannerdel');
 Route::any('/index/index','Index\IndexController@index');
 
 //商品的详情页
-Route::any('/goods/goodsInfo','Index\GoodsController@goodsInfo');
+Route::any('/goods/goodsInfo/{id}','Index\GoodsController@goodsInfo');
 Route::any('/index/item','Index\IndexController@item');
 

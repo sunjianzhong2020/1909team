@@ -426,11 +426,13 @@
                     <div class="clearix"></div>
                     @foreach($data as $v)
                     <ul class="news-list unstyled">
+
                         <li>
                             <span class="bold">[特惠]</span>{{$v->shop_ment_title}}
                         </li>
+
                     </ul>
-                        @endforeach
+                    @endforeach
                 </div>
                 <ul class="yui3-g Lifeservice">
                     <li class="yui3-u-1-4 life-item tab-item">
@@ -521,7 +523,7 @@
             @foreach($day_data as $k=>$v)
             <li class="yui3-u-5-24">
 
-                <a href="#" target="_blank"><img src="{{$v->goods_img}}" /></a>
+                <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}" target="_blank"><img src="{{$v->goods_img}}" /></a>
 
             </li>
             @endforeach
@@ -543,7 +545,7 @@
                 <li class="yui3-u-1-6">
                     <dl class="picDl huozhe">
                         <dd>
-                            <a href="" class="pic"><img src="{{$vv->goods_img}}" alt=""  style="width:142px;height:142px"/></a>
+                            <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}" class="pic"><img src="{{$vv->goods_img}}" alt=""  style="width:142px;height:142px"/></a>
                             <div class="like-text">
                                 <p>{{$vv->goods_desc}}</p>
                                 <h3>{{$vv->goods_price}}</h3>
@@ -575,13 +577,15 @@
             <span class="x-line"></span>
             <div class="yui3-u row-405 Interest-conver">
                 @foreach($g_data as $k=>$v)
-                <img src="{{$v->goods_img}}" style="width:404px;height:405px" />
+                    <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}"> <img src="{{$v->goods_img}}" style="width:404px;height:405px" /></a>
+
                     @endforeach
             </div>
             <div class="yui3-u row-225 Interest-conver-split">
                 <h5>好东西</h5>
                 @foreach($good_data as $k=>$v)
-                <img src="{{$v->goods_img}}" style="width:225px;height:206px"/>
+                    <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">   <img src="{{$v->goods_img}}" style="width:225px;height:206px"/>
+                    </a>
 
                 @endforeach
             </div>
@@ -589,12 +593,15 @@
                 <h5>品牌街</h5>
                 <div class="split-bt">
                     @foreach($street_data as $k=>$v)
-                        <img src="{{$v->goods_img}}" style="width:404px;height:206px" />
+                        <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">   <img src="{{$v->goods_img}}" style="width:404px;height:206px" /></a>
+
                     @endforeach
                 </div>
                 @foreach($street_two_data as $k=>$v)
                 <div class="x-img fr">
-                     <img src="{{$v->goods_img}}" style="width:202px;height:148px" />
+                    <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">
+                    <img src="{{$v->goods_img}}" style="width:202px;height:148px" />
+                    </a>
                 </div>
                 @endforeach
             </div>
@@ -664,7 +671,9 @@
                             <li>电热水器</li>
                         </ul>
                         @foreach($watch as $k=>$v)
+                            <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">
                             <img src="{{$v->goods_img}}" style="width:187px;height:227px" />
+                            </a>
                         @endforeach
                     </div>
                     <div class="yui3-u row-330 floorBanner">
@@ -678,11 +687,15 @@
                                 @foreach($three_data as $k=>$v)
                                     @if($k==0)
                                         <div class="active item">
+                                            <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">
                                             <img src="{{$v->goods_img}}" style="width:329px;height:360px">
+                                                </a>
                                         </div>
                                     @else
                                         <div class="item">
+                                            <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">
                                             <img src="{{$v->goods_img}}" style="width:329px;height:360px">
+                                                </a>
                                         </div>
                                     @endif
 
@@ -697,14 +710,18 @@
                         <span class="floor-x-line"></span>
                         @foreach($k_data as $k=>$v)
                             <div class="floor-conver-pit">
+                                <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">
                                 <img src="{{$v->goods_img}}" />
+                                    </a>
                             </div>
                         @endforeach
 
                     </div>
                     <div class="yui3-u row-218 split">
                         @foreach($big_data as $k=>$v)
+                            <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">
                             <img src="{{$v->goods_img}}" />
+                            </a>
                         @endforeach
 
                     </div>
@@ -713,7 +730,9 @@
                         <div class="floor-conver-pit">
 
                             @foreach($s_data as $k=>$v)
+                                <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">
                                 <img src="{{$v->goods_img}}" />
+                                </a>
                             @endforeach
                         </div>
 
@@ -787,7 +806,9 @@
                             <li>电热水器</li>
                         </ul>
                         @foreach($watch as $k=>$v)
+                            <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">
                             <img src="{{$v->goods_img}}" style="width:187px;height:227px" />
+                            </a>
                         @endforeach
                     </div>
                     <div class="yui3-u row-330 floorBanner">
@@ -801,11 +822,15 @@
                                 @foreach($three_data as $k=>$v)
                                     @if($k==0)
                                         <div class="active item">
+                                            <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">
                                             <img src="{{$v->goods_img}}" style="width:329px;height:360px">
+                                                </a>
                                         </div>
                                     @else
                                         <div class="item">
+                                            <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">
                                             <img src="{{$v->goods_img}}" style="width:329px;height:360px">
+                                                </a>
                                         </div>
                                     @endif
 
@@ -820,14 +845,18 @@
                         <span class="floor-x-line"></span>
                         @foreach($k_data as $k=>$v)
                         <div class="floor-conver-pit">
+                            <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">
                             <img src="{{$v->goods_img}}" />
+                                </a>
                         </div>
                             @endforeach
 
                     </div>
                     <div class="yui3-u row-218 split">
                         @foreach($big_data as $k=>$v)
+                            <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">
                         <img src="{{$v->goods_img}}" />
+                            </a>
                             @endforeach
 
                     </div>
@@ -836,34 +865,36 @@
                         <div class="floor-conver-pit">
 
                             @foreach($s_data as $k=>$v)
+                                <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">
                                 <img src="{{$v->goods_img}}" />
+                                </a>
                             @endforeach
                         </div>
 
                     </div>
                 </div>
             </div>
-            <div id="tab2" class="tab-pane">
-                <p>第二个</p>
-            </div>
-            <div id="tab9" class="tab-pane">
-                <p>第三个</p>
-            </div>
-            <div id="tab10" class="tab-pane">
-                <p>第4个</p>
-            </div>
-            <div id="tab11" class="tab-pane">
-                <p>第5个</p>
-            </div>
-            <div id="tab12" class="tab-pane">
-                <p>第6个</p>
-            </div>
-            <div id="tab13" class="tab-pane">
-                <p>第7个</p>
-            </div>
-            <div id="tab14" class="tab-pane">
-                <p>第8个</p>
-            </div>
+            {{--<div id="tab2" class="tab-pane">--}}
+                {{--<p>第二个</p>--}}
+            {{--</div>--}}
+            {{--<div id="tab9" class="tab-pane">--}}
+                {{--<p>第三个</p>--}}
+            {{--</div>--}}
+            {{--<div id="tab10" class="tab-pane">--}}
+                {{--<p>第4个</p>--}}
+            {{--</div>--}}
+            {{--<div id="tab11" class="tab-pane">--}}
+                {{--<p>第5个</p>--}}
+            {{--</div>--}}
+            {{--<div id="tab12" class="tab-pane">--}}
+                {{--<p>第6个</p>--}}
+            {{--</div>--}}
+            {{--<div id="tab13" class="tab-pane">--}}
+                {{--<p>第7个</p>--}}
+            {{--</div>--}}
+            {{--<div id="tab14" class="tab-pane">--}}
+                {{--<p>第8个</p>--}}
+            {{--</div>--}}
         </div>
     </div>
 </div>
