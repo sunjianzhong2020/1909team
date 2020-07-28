@@ -34,7 +34,7 @@
                     </ol>
                     <div class="carousel-inner">
 
-                        @foreach($data as $k=>$v)
+                        @foreach($ment as $k=>$v)
                           @if($k == 0)
                                 <div class="item active">
                                     <a href="{{$v->shop_ment_url}}">
@@ -58,7 +58,7 @@
                 <div class="news">
                     <h4><em class="fl">品优购快报</em><span class="fr tip">更多 ></span></h4>
                     <div class="clearix"></div>
-                    @foreach($data as $v)
+                    @foreach($ment as $v)
                     <ul class="news-list unstyled">
                         <li>
                             <span class="bold">[特惠]</span>{{$v->shop_ment_title}}
