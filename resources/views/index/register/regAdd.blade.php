@@ -133,9 +133,13 @@
                 type:"post",
                 dataType:'json',
                 success:function(res){
-                    alert(res.message);
-                    // console.log(res);
-                    window.location.href = '/index/logAdd';
+                    if(res.code==200){
+                        alert(res.message);
+                        window.location.href = '/index/logAdd';
+                    }else{
+                        alert(res.message);
+                        window.location.href = '/index/reg';
+                    }
                 }
             });
         })

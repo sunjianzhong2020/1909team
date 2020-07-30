@@ -107,7 +107,6 @@ class RegisterController extends CommonController
         }
         $data['user_name'] = $user_name;
         $data['user_pwd'] = md5($user_pwd);
-        $data['user_new_pwd'] = md5($user_new_pwd);
         $data['phone'] = $phone;
         $data['addtime'] = time();
         $obj = User::where(['user_name' => $user_name])->first();
