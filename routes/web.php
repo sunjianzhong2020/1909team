@@ -181,5 +181,3 @@ Route::any('/index/logAdd','Index\LoginController@loginAdd');
 //商品的详情页
 Route::any('/goods/goodsInfo/{id}','Index\GoodsController@goodsInfo');
 Route::any('/index/item','Index\IndexController@item');
-
-
