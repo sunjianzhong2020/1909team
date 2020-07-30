@@ -176,8 +176,23 @@ Route::any('/index/reg','Index\RegisterController@regAdd');
 Route::any('/index/verify','Index\RegisterController@verify');
 Route::any('/index/regAdd_do','Index\RegisterController@regAdd_do');
 Route::any('/index/logAdd','Index\LoginController@loginAdd');
+Route::any('/index/logAdd_do','Index\LoginController@logAdd_do');
 
 
 //商品的详情页
 Route::any('/goods/goodsInfo/{id}','Index\GoodsController@goodsInfo');
+
 Route::any('/index/item','Index\IndexController@item');
+
+//分类详情
+Route::any('/cate/cateInfo/{id}','Index\CateController@cateInfo');
+
+
+Route::any('/index/item','Index\IndexController@item');
+//活动
+Route::any('admin/activeadd','Admin\ActiveController@activeadd');
+Route::any('admin/activedo','Admin\ActiveController@activedo');
+Route::any('admin/activeshow','Admin\ActiveController@activeshow');
+Route::any('admin/activedel','Admin\ActiveController@activedel');
+
+

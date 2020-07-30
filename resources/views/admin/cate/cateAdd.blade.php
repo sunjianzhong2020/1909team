@@ -62,6 +62,15 @@
                             <textarea name="c_desc" class="form-control"  ng-model="entity.telephone"  placeholder="分类描述" value=""></textarea>
                         </div>
 
+                        <div class="col-md-2 title">父级分类</div>
+                        <div class="col-md-10 data">
+                            <select name='p_id' class="form-control">
+                            <option value="0">顶级分类</option>
+                        @foreach($cate as $v)
+                            <option value="{{$v['c_id']}}">@php echo str_repeat("&nbsp;&nbsp;&nbsp;",$v['level'])@endphp {{$v['c_name']}}</option>
+                        @endforeach
+                            </select>
+                        </div>
                     </div>
                 </div>
 
@@ -92,6 +101,7 @@
             data.c_name = $("input[name='c_name']").val();
             data.c_words = $("input[name='c_words']").val();
             data.c_desc = $("textarea[name='c_desc']").val();
+            data.p_id = $("select[name='p_id']").val();
             var url = "/admin/cateAdd_do";
             $.ajax({
                 type:'post',

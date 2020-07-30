@@ -151,6 +151,7 @@ class MentController extends Controller
     }
     public function mentupdate(Request $request){
         $bb = $request->all();
+        //var_dump($bb);die;
 //        var_dump($aa['shop_ment_cate_id']);exit;
         $mentmodels = new Mentmodels();
         $once = DB::table('shop_ment')->where('shop_ment_url', $bb['shop_ment_url'])->first();
