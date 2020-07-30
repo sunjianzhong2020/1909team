@@ -181,6 +181,9 @@ Route::any('/index/logAdd','Index\LoginController@loginAdd');
 //商品的详情页
 Route::any('/goods/goodsInfo/{id}','Index\GoodsController@goodsInfo');
 
+//分类详情
+Route::any('/cate/cateInfo/{id}','Index\CateController@cateInfo');
+
 
 Route::any('/index/item','Index\IndexController@item');
 //活动

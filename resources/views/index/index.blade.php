@@ -10,13 +10,23 @@
                     @foreach($cate as $k=>$v)
 
                     <div class="item bo">
-                        <h3><a href="">{{$v->c_name}}</a></h3>
+                        <h3><a href="{{url('/cate/cateInfo/'.$v->c_id)}}">{{$v->c_name}}</a></h3>
                         <div class="item-list clearfix">
                             <div class="subitem">
+                                @foreach($cateinfo as $k=>$vv)
+                                @if($v->c_id==$vv->p_id)
                                 <dl class="fore1">
-                                   <!--  <dt><a href="">电子书</a></dt>
-                                    <dd><a href="">免费</a><a href="">小说</a></em><a href="">励志与成功</a><em><a href="">婚恋/两性</a></em><em><a href="">文学</a></em><em><a href="">经管</a></em><em><a href="">畅读VIP</a></em></dd> -->
+                                    <dt><a href="{{url('/cate/cateInfo/'.$v->c_id)}}">{{$vv->c_name}}</a></dt>
+                                    <dd>
+                                        @foreach($cateinfo as $k=>$vvv)
+                                        @if($vv->c_id==$vvv->p_id)
+                                           <em><a href="">{{$vvv->c_name}}</a></em>
+                                        @endif
+                                        @endforeach
+                                    </dd>
                                 </dl>
+                                @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>
