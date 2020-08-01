@@ -176,11 +176,15 @@ Route::any('/index/reg','Index\RegisterController@regAdd');
 Route::any('/index/verify','Index\RegisterController@verify');
 Route::any('/index/regAdd_do','Index\RegisterController@regAdd_do');
 Route::any('/index/logAdd','Index\LoginController@loginAdd');
-
+Route::any('/index/logAdd_do','Index\LoginController@logAdd_do');
 
 //商品的详情页
 Route::any('/goods/goodsInfo/{id}','Index\GoodsController@goodsInfo');
 
+Route::any('/index/item','Index\IndexController@item');
+
+//分类详情
+Route::any('/cate/cateInfo/{id}','Index\CateController@cateInfo');
 
 
 
@@ -190,6 +194,7 @@ Route::any('admin/activeadd','Admin\ActiveController@activeadd');
 Route::any('admin/activedo','Admin\ActiveController@activedo');
 Route::any('admin/activeshow','Admin\ActiveController@activeshow');
 Route::any('admin/activedel','Admin\ActiveController@activedel');
+
 Route::any('index/address','Index\AddressController@ressadd');
 Route::any('index/gitcity','Index\AddressController@gitcity');
 Route::any('index/gitarea','Index\AddressController@gitarea');
@@ -197,3 +202,10 @@ Route::any('index/dizhiadd','Index\AddressController@dizhiadd');
 Route::any('index/dizhidel/{id}','Index\AddressController@dizhidel');
 Route::any('index/dizhiedit/{id}','Index\AddressController@dizhiedit');
 Route::any('index/dizhiupload','Index\AddressController@dizhiupload');
+
+
+
+#个人中心
+Route::any('/index/consumerAdd','Index\ConsumerController@consumerAdd');
+Route::any('/index/consumerAdd_do','Index\ConsumerController@consumerAdd_do');
+

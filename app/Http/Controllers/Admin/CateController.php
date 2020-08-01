@@ -14,7 +14,9 @@ class CateController extends CommonController
      */
      public function cateAdd()
      {
-         return view('admin/cate/cateAdd');
+        $res=Cate::get()->toArray();
+        $cate=Cate::createTree($res);
+         return view('admin/cate/cateAdd',['res'=>$res,'cate'=>$cate]);
      }
 
 
@@ -23,6 +25,7 @@ class CateController extends CommonController
          $arr = $request -> all();
 //         var_dump($data);
          $c_name = $arr['c_name'];
+         $p_id=$arr['p_id'];
          if(empty($c_name)){
              return $this -> apiOutPut('000001','分类名称不能为空');
              exit;
@@ -41,6 +44,7 @@ class CateController extends CommonController
          $data['c_words'] = $c_words;
          $data['c_desc'] = $c_desc;
          $data['addtime'] = time();
+         $data['p_id']=$p_id;
          $obj = Cate::where(['c_name' => $c_name])->first();
          if($obj){
              return $this -> apiOutPut('000001','分类名称已存在');

@@ -25,7 +25,8 @@ class IndexController extends Controller
             ->leftjoin('shop_goods','shop_goods.goods_id','=','shop_ment.goods_id')
             ->limit(6)->get();
         //分类展示
-        $cate=DB::table('shop_cate')->get()->toArray();
+        $cate=DB::table('shop_cate')->where('p_id',0)->get()->toArray();
+        $cateinfo=DB::table('shop_cate')->get();
         //导航栏
         $banner=DB::table('shop_banner')->get();
 
@@ -71,9 +72,18 @@ class IndexController extends Controller
 
        return view('index/index',['day_data'=>$day_data,'like_data'=>$like_data,'g_data'=>$g_data,'good_data'=>$good_data
        ,'three_data'=>$three_data,'street_data'=>$street_data,'street_two_data'=>$street_two_data,'watch'=>$watch,'k_data'=>$k_data,'big_data'=>$big_data
-       ,'s_data'=>$s_data,'ment'=>$ment,'cate'=>$cate,'banner'=>$banner]);
+       ,'s_data'=>$s_data,'ment'=>$ment,'cate'=>$cate,'banner'=>$banner,'cateinfo'=>$cateinfo]);
 
     }
 
+    /**
+     * 广告的详情页面
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function item(Request $request)
+    {
+        return view('index/item');
+    }
 
 }

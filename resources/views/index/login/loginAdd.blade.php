@@ -41,10 +41,10 @@
                     <div id="profile" class="tab-pane  active">
                         <form class="sui-form">
                             <div class="input-prepend"><span class="add-on loginname"></span>
-                                <input id="prependedInput" type="text" placeholder="邮箱/用户名/手机号" class="span2 input-xfat">
+                                <input id="prependedInput" type="text" placeholder="邮箱/用户名/手机号"  name="user_name" class="span2 input-xfat">
                             </div>
                             <div class="input-prepend"><span class="add-on loginpwd"></span>
-                                <input id="prependedInput" type="password" placeholder="请输入密码" class="span2 input-xfat">
+                                <input id="prependedInput" type="password" placeholder="请输入密码" name="user_pwd" class="span2 input-xfat">
                             </div>
                             <div class="setting">
                                 <label class="checkbox inline">
@@ -54,7 +54,7 @@
                                 <span class="forget">忘记密码？</span>
                             </div>
                             <div class="logined">
-                                <a class="sui-btn btn-block btn-xlarge btn-danger"  name="log" href="#" >登&nbsp;&nbsp;录</a>
+                                <a class="sui-btn btn-block btn-xlarge btn-danger"  name="log" href="javascript:void(0)" >登&nbsp;&nbsp;录</a>
                             </div>
                         </form>
                         <div class="otherlogin">
@@ -101,7 +101,7 @@
 <script>
     $(document).ready(function () {
          $("a[name='log']").click(function(){
-            // alert(111)
+             // alert(111)
              data = {};
              data.user_name = $("input[name='user_name']").val();
              data.user_pwd = $("input[name='user_pwd']").val();
@@ -112,9 +112,16 @@
                  type:"post",
                  dataType:'json',
                  success:function(res){
-                     alert(res.message);
-                     // console.log(res);
-                     // window.location.href = '/index/logAdd';
+                     // alert(res.message);
+                     // // console.log(res);
+                     // // window.location.href = '/index/logAdd';
+                     if(res.code==200){
+                         alert(res.message);
+                         window.location.href = '/index/index';
+                     }else{
+                         alert(res.message);
+                         window.location.href = '/index/logAdd';
+                     }
                  }
              })
          })
