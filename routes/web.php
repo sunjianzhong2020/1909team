@@ -181,6 +181,8 @@ Route::any('/index/logAdd_do','Index\LoginController@logAdd_do');
 //商品的详情页
 Route::any('/goods/goodsInfo/{id}','Index\GoodsController@goodsInfo');
 
+Route::any('/index/item','Index\IndexController@item');
+
 //分类详情
 Route::any('/cate/cateInfo/{id}','Index\CateController@cateInfo');
 
@@ -192,6 +194,8 @@ Route::any('admin/activedo','Admin\ActiveController@activedo');
 Route::any('admin/activeshow','Admin\ActiveController@activeshow');
 Route::any('admin/activedel','Admin\ActiveController@activedel');
 
+
 #个人中心
 Route::any('/index/consumerAdd','Index\ConsumerController@consumerAdd');
 Route::any('/index/consumerAdd_do','Index\ConsumerController@consumerAdd_do');
+

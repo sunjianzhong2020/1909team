@@ -76,5 +76,14 @@ class IndexController extends Controller
 
     }
 
+    /**
+     * 广告的详情页面
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function item(Request $request)
+    {
+        return view('index/item');
+    }
 
 }

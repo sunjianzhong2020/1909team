@@ -68,6 +68,7 @@
                 <div class="news">
                     <h4><em class="fl">品优购快报</em><span class="fr tip">更多 ></span></h4>
                     <div class="clearix">
+
                         @foreach($ment as $v)
                             <ul class="news-list unstyled">
                                 <li>
@@ -170,7 +171,9 @@
             @foreach($day_data as $k=>$v)
             <li class="yui3-u-5-24">
 
-                <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}" target="_blank"><img src="{{$v->goods_img}}" /></a>
+                <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}" target="_blank">
+                <img src="{{$v->goods_img}}" />
+                </a>
 
             </li>
             @endforeach
@@ -195,7 +198,7 @@
                             <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}" class="pic"><img src="{{$vv->goods_img}}" alt=""  style="width:142px;height:142px"/></a>
                             <div class="like-text">
                                 <p>{{$vv->goods_desc}}</p>
-                                <h3>{{$vv->goods_price}}</h3>
+                                <h3>￥{{$vv->goods_price}}</h3>
                             </div>
                         </dd>
                         <dd>

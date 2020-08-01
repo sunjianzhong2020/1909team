@@ -108,10 +108,21 @@ $(function(){
                             <div class="fr remark">
                                 <i>累计评价</i><em>612188</em>
                             </div>
+
+                            </div>
+                            <div class="fr remark">
+                                <i>累计评价</i><em>612188</em>
+                            </div>
                         </div>
                         <div class="summary-wrap">
                             <div class="fl title">
                                 <i>促　　销</i>
+                            </div>
+                            <div class="fl fix-width">
+                                <i class="red-bg">加价购</i>
+                                <em class="t-gray">满999.00另加20.00元，或满1999.00另加30.00元，或满2999.00另加40.00元，即可在购物车换购热销商品</em>
+                            </div>
+
                             </div>
                             <div class="fl fix-width">
                                 <i class="red-bg">加价购</i>
@@ -123,6 +134,11 @@ $(function(){
                         <div class="summary-wrap">
                             <div class="fl title">
                                 <i>支　　持</i>
+                            </div>
+                            <div class="fl fix-width">
+                                <em class="t-gray">以旧换新，闲置手机回收  4G套餐超值抢  礼品购</em>
+                            </div>
+
                             </div>
                             <div class="fl fix-width">
                                 <em class="t-gray">以旧换新，闲置手机回收  4G套餐超值抢  礼品购</em>
@@ -139,6 +155,21 @@ $(function(){
                     </div>
                     <div class="clearfix choose">
                         <div id="specification" class="summary-wrap clearfix">
+                        @foreach($n_data as $v)
+                            <dl>
+                                <dt>
+                                    <div class="fl title">
+                                        <i>{{$v->sku_name_name}}</i>
+                                    </div>
+                                </dt>
+                                @foreach($data as $vv)
+                                @if($v['sku_name_id'] == $vv['sku_name_id'])
+                                <dd><a href="javascript:;" class="sku" >{{$vv['sku_val_name']}}<span title="点击取消选择">&nbsp;</span>
+                                </a></dd>
+                                @endif
+                                @endforeach
+                            </dl>
+                            @endforeach
                             <dl>
                                 <dt>
                                     <div class="fl title">
@@ -194,9 +225,17 @@ $(function(){
 
                             </dl>
 
+                        </div>
 
                         </div>
 
+                        <div class="summary-wrap">
+                            <div class="fl title">
+                                <div class="control-group">
+                                    <div class="controls" goods_num="{{$goods_info->goods_num}}" >
+                                        <input autocomplete="off"  id="buy_number" type="text" value="1" minnum="1" class="itxt" />
+                                        <a href="javascript:void(0)" class="increment plus" id="add">+</a>
+                                        <a href="javascript:void(0)" class="increment mins" id="less">-</a>
 
                         <div class="summary-wrap">
                             <div class="fl title">
@@ -218,6 +257,71 @@ $(function(){
                         </div>
                     </div>
                 </div>
+            </div>
+            <!--product-detail-->
+            <div class="clearfix product-detail">
+                <div class="fl aside">
+                    <div class="shop">
+                        <span class="fl">三星旗舰店</span><span class="fr"><a href="shop.html" target="_blank" class="sui-btn btn-bordered btn-danger">进入店铺</a></span>
+                    </div>
+                    <div class="clearfix"></div>
+                    <ul class="sui-nav nav-tabs tab-wraped">
+                        <li class="active">
+                            <a href="#index" data-toggle="tab">
+                                <span>相关分类</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#profile" data-toggle="tab">
+                                <span>推荐品牌</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content tab-wraped">
+                        <div id="index" class="tab-pane active">
+                            <ul class="part-list unstyled">
+                                <li>手机</li>
+                                <li>手机壳</li>
+                                <li>内存卡</li>
+                                <li>Iphone配件</li>
+                                <li>贴膜</li>
+                                <li>手机耳机</li>
+                                <li>移动电源</li>
+                                <li>平板电脑</li>
+                            </ul>
+                            <ul class="goods-list unstyled">
+                            @foreach($dian as $k=>$v)
+                                <li>
+                                    <div class="list-wrap">
+                                        <div class="p-img">
+                                        <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}">
+                                            <img src="{{$v->goods_img}}"  style="width:152px;height:90px"/>
+                                            </a>
+                                        </div>
+                                        <div class="attr">
+                                            <em>{{$v->goods_name}}</em>
+                                        </div>
+                                        <div class="price">
+                                           <strong>
+                                            <em>￥</em>
+                                            <i>{{$v->goods_price}}</i>
+                                        </strong>
+                                        </div>
+                                        <div class="operate">
+                                            <a href="javascript:void(0);" class="sui-btn btn-bordered">加入购物车</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                @endforeach
+                            </ul>
+
+                        </div>
+                        <div id="profile" class="tab-pane">
+                            <p>推荐品牌</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <!--product-detail-->
             <div class="clearfix product-detail">
@@ -501,6 +605,112 @@ $(function(){
                                 </div>
                                 <div class="price">
                                     <strong>
+                                            <em>￥</em>
+                                            <i>{{$v->goods_price}}</i>
+                                        </strong>
+                                </div>
+                                <div class="commit">
+                                    <i class="command">已有6人评价</i>
+                                </div>
+                            </div>
+                        </li>
+                        @endforeach
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-main intro">
+                        <ul class="sui-nav nav-tabs tab-wraped">
+                            <li class="active">
+                                <a href="#one" data-toggle="tab">
+                                    <span>商品介绍</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#two" data-toggle="tab">
+                                    <span>规格与包装</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#three" data-toggle="tab">
+                                    <span>售后保障</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#four" data-toggle="tab">
+                                    <span>商品评价</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#five" data-toggle="tab">
+                                    <span>手机社区</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                        <div class="tab-content tab-wraped">
+                            <div id="one" class="tab-pane active">
+                                <ul class="goods-intro unstyled">
+                                    <li>分辨率：1920*1080(FHD)</li>
+                                    <li>后置摄像头：1200万像素</li>
+                                    <li>前置摄像头：500万像素</li>
+                                    <li>核 数：其他</li>
+                                    <li>频 率：以官网信息为准</li>
+                                    <li>品牌： Apple</li>
+                                    <li>商品名称：APPLEiPhone 6s Plus</li>
+                                    <li>商品编号：1861098</li>
+                                    <li>商品毛重：0.51kg</li>
+                                    <li>商品产地：中国大陆</li>
+                                    <li>热点：指纹识别，Apple Pay，金属机身，拍照神器</li>
+                                    <li>系统：苹果（IOS）</li>
+                                    <li>像素：1000-1600万</li>
+                                    <li>机身内存：64GB</li>
+                                </ul>
+                                <div class="intro-detail">
+
+                                         <img src="{{$goods_info->goods_img}}"  style="width:960px;height:755px"/>
+
+
+                                         <img src="{{$goods_info->goods_img}}"  style="width:960px;height:755px"/>
+
+
+                                         <img src="{{$goods_info->goods_img}}"  style="width:960px;height:755px"/>
+                                </div>
+                            </div>
+                            <div id="two" class="tab-pane">
+                                <p>规格与包装</p>
+                            </div>
+                            <div id="three" class="tab-pane">
+                                <p>售后保障</p>
+                            </div>
+                            <div id="four" class="tab-pane">
+                                <p>商品评价</p>
+                            </div>
+                            <div id="five" class="tab-pane">
+                                <p>手机社区</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--like-->
+            <div class="clearfix"></div>
+            <div class="like">
+                <h4 class="kt">猜你喜欢</h4>
+                <div class="like-list">
+                    <ul class="yui3-g">
+                    @foreach($like_data as $k=>$v)
+                        <li class="yui3-u-1-6">
+                            <div class="list-wrap">
+                                <div class="p-img">
+                                     <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}" target="_blank">
+                <img src="{{$v->goods_img}}" />
+                </a>
+                                </div>
+                                <div class="attr">
+                                    <em>{{$v->goods_desc}}</em>
+                                </div>
+                                <div class="price">
+                                    <strong>
                                             <em></em>
                                             <i>{{$v->goods_price}}</i>
                                         </strong>
@@ -657,6 +867,69 @@ $(function(){
     </div>
 </script>
 <!--侧栏面板结束-->
-undefined
+
+
+<script>
+    $(document).ready(function(){
+        //给+绑定一个点击事件
+        $(document).on('click','#add',function(){
+            //获取当前点击+的按钮
+            var _this=$(this);
+           //获取购买的数量
+           var buy_number=parseInt(_this.prev('input').val());
+           //获取库存
+            var goods_num=parseInt(_this.parents('div').attr('goods_num'));
+            //如果input 框的值(都卖数量)>商品库存量 input框的值为库存量
+            if(buy_number>=goods_num){
+                _this.prev('input').val(goods_num);
+            }else{
+                //购买数量+1
+                buy_number=buy_number+1;
+                 _this.prev('input').val(buy_number);
+            }
+        })
+        //给-绑定一个点击事件
+        $(document).on('click','#less',function(){
+            //获取当前点击的-按钮
+            var _this=$(this);
+              //获取购买的数量
+           var buy_number=parseInt(_this.prev().prev('input').val());
+            //获取库存
+            var goods_num=parseInt(_this.parents('div').attr('goods_num'));
+           //如果购买的数量<=1  购买数量input框显示1
+           if(buy_number<=1){
+               _this.prev().prev('input').val(1);
+           }else{
+               buy_number=buy_number-1;
+               _this.prev().prev('input').val(buy_number);
+           }
+        })
+        //给购买数量input框绑定一个失去焦点事件
+        $(document).on('blur','#buy_number',function(){
+           //获取当前失去焦点的input框
+           var _this=$(this);
+           //获取购买的数量‘
+           var buy_number=_this.val();
+          //获取库存量
+          var goods_num=_this.parents('div').attr('goods_num');
+          var reg=/^\d+$/;
+          //检测库存
+          if(buy_number==""){
+             _this.val(1);
+          }else if(!reg.test(buy_number)){
+            //检测input框里面的是否是 数字
+              _this.val(1);
+          }else if(buy_number<=1){
+            //如果库存量<=1
+            _this.val(1);
+          }else if(parseInt(buy_number)>=goods_num){
+            //如果购买数量大于商品库存
+             _this.val(goods_num);
+          }else{
+            _this.val(parseInt(buy_number));
+          }
+        })
+    })
+</script>
 
 </html>
