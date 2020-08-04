@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\SkuVal;
 use App\Models\Sku;
 use App\Models\SkuName;
-
+use Illuminate\Support\Facades\DB;
 
 class GoodsController extends CommonController
 {
@@ -75,6 +75,12 @@ class GoodsController extends CommonController
         ];
         $like_data=$goods_model->orderBy('goods_id','desc')->limit(6)->where($like_where)->get();
         $f_data=$goods_model->limit(5)->where($like_where)->get();
+
+        //友情链接
+        $active = DB::table('shop_active')->where('status',1)->limit(6)->get();
+        //尾部导航栏
+        $friend = DB::table('shop_friend')->where('status',1)->get();
+
         //品牌推荐
         $brand_where=[
             ['status','=',1]
@@ -82,7 +88,7 @@ class GoodsController extends CommonController
         $brand_model=new Brand();
         $brand_data=$brand_model::where($brand_where)->get();
             return view('/index/goods/goodsInfo',['like_data'=>$like_data,'f_data'=>$f_data,'goods_info'=>$goods_info,'n_data'=>$n_data,'data'=>$data
-            ,'brand_data'=>$brand_data]);
+            ,'brand_data'=>$brand_data,'active'=>$active,'friend'=>$friend]);
     }
     /**
      * 商品的sku

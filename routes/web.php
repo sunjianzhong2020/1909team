@@ -218,7 +218,3 @@ Route::any('/cart/cartAdd','Index\CartController@cartAdd');
 Route::any('/cart_pay/cart_pay_add','Index\CartPayController@cart_pay_add');
 
 
-Route::any('student/add','Student\StudentController@add');
-Route::any('student/add_do','Student\StudentController@add_do');
-Route::any('student/show','Student\StudentController@show');
-Route::any('student/del','Student\StudentController@del');

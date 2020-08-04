@@ -10,6 +10,7 @@ use App\Models\SkuName;
 use App\Models\SkuVal;
 use Illuminate\Http\Request;
 use App\Models\Sku;
+use Illuminate\Support\Facades\DB;
 class CartPayController extends CommonController
 {
     /**
@@ -18,6 +19,8 @@ class CartPayController extends CommonController
      */
     public function cart_pay_add(Request $request)
     {
+        //尾部导航栏
+        $friend = DB::table('shop_friend')->where('status',1)->get();
         $uid=$request->session()->get('uid');
          $cart_where=[
             ['uid','=',$uid],
@@ -54,6 +57,6 @@ class CartPayController extends CommonController
        $sku_name_id=array_unique($sku_name_id);
         $sku_name_model=new SkuName();
         $sku_name=$sku_name_model::whereIn('sku_name_id',$sku_name_id)->get();
-        return view('index/cart_pay/cart_pay_add',['goods_info'=>$goods_info,'sku_val_name'=>$sku_val_name,'sku_name'=>$sku_name]);
+        return view('index/cart_pay/cart_pay_add',['goods_info'=>$goods_info,'sku_val_name'=>$sku_val_name,'sku_name'=>$sku_name,'friend'=>$friend]);
     }
 }
