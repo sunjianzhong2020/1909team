@@ -40,6 +40,8 @@ class LoginController extends CommonController
          if($user_info->user_pwd != md5($user_pwd)){
              return $this->apiOutPut('000001','密码不正确');
          }
+         $request->session()->put(['uid'=>$user_info['uid']]);
+         $request->session()->save();
          return $this->apiOutPut('200','登录成功',$user_info);
      }else{
          return $this->apiOutPut('000001','登录失败');

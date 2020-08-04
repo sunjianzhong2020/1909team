@@ -99,14 +99,14 @@
                         <div class="fr shopcar">
                             <div class="show-shopcar" id="shopcar">
                                 <span class="car"></span>
-                                <a class="sui-btn btn-default btn-xlarge" href="cart.html" target="_blank">
+                                <a class="sui-btn btn-default btn-xlarge" href="/cart_pay/cart_pay_add">
                                     <span>我的购物车</span>
                                     <i class="shopnum">0</i>
                                 </a>
-                                <div class="clearfix shopcarlist" id="shopcarlist" style="display:none">
+                              <!--   <div class="clearfix shopcarlist" id="shopcarlist" style="display:none">
                                     <p>"啊哦，你的购物车还没有商品哦！"</p>
                                     <p>"啊哦，你的购物车还没有商品哦！"</p>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

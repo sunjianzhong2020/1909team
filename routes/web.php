@@ -209,3 +209,10 @@ Route::any('index/dizhiupload','Index\AddressController@dizhiupload');
 Route::any('/index/consumerAdd','Index\ConsumerController@consumerAdd');
 Route::any('/index/consumerAdd_do','Index\ConsumerController@consumerAdd_do');
 
+//商品详情页
+Route::any('/goods/goodsInfo/{id}','Index\GoodsController@goodsInfo');
+Route::any('/goods/goodsSku','Index\GoodsController@goodsSku');
+//加入购物车
+Route::any('/cart/cartAdd','Index\CartController@cartAdd');
+Route::any('/cart_pay/cart_pay_add','Index\CartPayController@cart_pay_add');
+
