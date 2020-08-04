@@ -36,12 +36,12 @@ class Phone extends Model
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
         }
-        $re = (curl_exec($curl));
-//        var_dump($re);die;
-        $re = json_decode($re, true);
-//        $re = [
-//            'return_code' => 00000
-//        ];
+//        $re = (curl_exec($curl));
+////        var_dump($re);die;
+//        $re = json_decode($re, true);
+        $re = [
+            'return_code' => 00000
+        ];
         if ($re['return_code'] == 00000) {
             $code_model = new Code();
             $data = [

@@ -19,7 +19,11 @@ class CateController extends CommonController
          return view('admin/cate/cateAdd',['res'=>$res,'cate'=>$cate]);
      }
 
-
+    /**
+     * @param Request $request
+     * @return array
+     * 分类执行添加页面
+     */
      public function cateAdd_do(Request $request)
      {
          $arr = $request -> all();
@@ -64,7 +68,7 @@ class CateController extends CommonController
      */
      public function cateShow()
      {
-         $data = Cate::where('status',1)->get();
+         $data = Cate::where('status',1)->paginate(2);
          return view('admin/cate/cateShow',['data' => $data]);
      }
 

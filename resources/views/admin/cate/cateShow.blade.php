@@ -57,6 +57,7 @@
                 <th class="sorting_asc">商品分类id</th>
                 <th class="sorting">商品分类名称</th>
                 <th class="sorting">商品分类关键字</th>
+                <th class="sorting">商品分类描述</th>
                 <th class="text-center">操作</th>
             </tr>
             </thead>
@@ -67,6 +68,7 @@
                 <td>{{$v->c_id}}</td>
                 <td>{{$v->c_name}}</td>
                 <td>{{$v->c_words}}</td>
+                <td>{{$v->c_desc}}</td>
                 <td class="text-center">
                     <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
                     <button type="button" name="del" class="btn bg-olive btn-xs" data-toggle="modal">删除</button>
@@ -74,7 +76,9 @@
             </tr>
             @endforeach
             </tbody>
+
         </table>
+    {{$data->links()}}
         <!--数据列表/-->
     </div>
     <!-- 数据表格 /-->

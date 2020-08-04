@@ -99,8 +99,31 @@
 </html>
 <script>
     $(document).ready(function(){
+
+        /**
+         * 计时器
+         */
+        function gotime(){
+            var second = $("a[name='code']").text();
+            //把一个变量转化成整数
+            second = parseInt(second);
+            // console.log(second);
+            if(second==0){
+                clearInterval(set);
+                $("a[name='code']").text("获取短信验证码");
+                $("a[name='code']").css('pointer-events','auto');
+            }else{
+                second = second -1;
+                $("a[name='code']").text(second+'s');
+                $("a[name='code']").css('pointer-events','none');
+            }
+        }
+
+
         $("a[name='code']").click(function() {
             // alert(111);
+            $(this).text('60s');
+            set = setInterval(gotime,1000);
             data = {};
             data.phone = $("input[name='phone']").val();
             // alert(data.phone);
@@ -143,6 +166,5 @@
                 }
             });
         })
-
     })
 </script>
