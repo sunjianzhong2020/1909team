@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <title>设置-个人信息</title>
+    <title>设置-地址添加</title>
     <link rel="icon" href="assets/img/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="css/webbase.css" />
@@ -24,16 +24,16 @@
                 <div class="shortcut">
                     <ul class="fl">
                         <li class="f-item">品优购欢迎您！</li>
-                        <li class="f-item">请<a href="login.html" target="_blank">登录</a>　<span><a href="register.html" target="_blank">免费注册</a></span></li>
+                        <li class="f-item">请<a href="/index/logAdd" target="_blank">登录</a>　<span><a href="/index/reg" target="_blank">免费注册</a></span></li>
                     </ul>
                     <ul class="fr">
                         <li class="f-item">我的订单</li>
                         <li class="f-item space"></li>
                         <li class="f-item"><a href="home.html" target="_blank">我的品优购</a></li>
                         <li class="f-item space"></li>
-                        <li class="f-item">品优购会员</li>
+                        <li class="f-item"><a href="/index/address" target="_blank">地址添加</a></li>
                         <li class="f-item space"></li>
-                        <li class="f-item">企业采购</li>
+                        <li class="f-item"><a href="/index/consumerAdd" target="_blank">个人信息</a></li>
                         <li class="f-item space"></li>
                         <li class="f-item">关注品优购</li>
                         <li class="f-item space"></li>

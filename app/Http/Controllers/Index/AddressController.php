@@ -95,13 +95,18 @@ class AddressController extends Controller
     }
     //修改
     public function dizhiedit($id){
+        //获取地址表全部ID为0的父级省
         $areaa = Area::where(["pid"=>0])->get();
+        //查找传过来的值 信息库里边是否有 并且查找一条
         $xym = DB::table('shop_address')->where("shop_address_id",$id)->first();
-        //循环覆盖地址id
-//        $xym=array_map('get_object_vars', $xym);
-
+        //根据地址表中的省 查找全部利用之前的内容改变来获取所有市级
         $city = Area::where(["pid"=>$xym->shop_address_province])->get();
+        //根据地址表中的市区 朝朝全部利用之前的内容改变来获取的所有区县
         $area = Area::where(["pid"=>$xym->shop_address_city])->get();
+        //传值去html页面循环出来
         return view('/index/dizhiedit',['xym'=>$xym,'areaa'=>$areaa,'city'=>$city,'area'=>$area]);
     }
+
+
+
 }
