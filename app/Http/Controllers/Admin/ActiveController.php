@@ -70,7 +70,7 @@ class ActiveController extends CommonController
     public function activedel(Request $request){
     	$arr=$request->all();
     	//dd($arr);
-    	$a_id=$arr['a_id'];
+		$a_id=$arr['a_id'];
     	$res = Active::where('a_id',$a_id)->update(['status'=>2]);
     	//dd($res);
     	if($res){

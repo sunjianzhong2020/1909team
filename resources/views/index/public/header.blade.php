@@ -84,14 +84,9 @@
                         </div>
                         <div class="hotwords">
                             <ul>
-                                <li class="f-item">品优购首发</li>
-                                <li class="f-item">亿元优惠</li>
-                                <li class="f-item">9.9元团购</li>
-                                <li class="f-item">每满99减30</li>
-                                <li class="f-item">亿元优惠</li>
-                                <li class="f-item">9.9元团购</li>
-                                <li class="f-item">办公用品</li>
-
+                                @foreach($active as $v)
+                                <li class="f-item">{{$v->a_name}}</li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

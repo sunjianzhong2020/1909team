@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Goods;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use active;
+use friend;
 
 class IndexController extends Controller
 {
@@ -67,12 +69,13 @@ class IndexController extends Controller
         $s_data=$goods_model::where($where)->whereIn('goods_id',[24,25])->get();
         //轮播图
         $three_data=$goods_model::where($where)->whereIn('goods_id',[18,19,20])->get();
-
-
+       
+        $active = DB::table('shop_active')->where('status',1)->limit(6)->get();
+        $friend = DB::table('shop_friend')->where('status',1)->get();
 
        return view('index/index',['day_data'=>$day_data,'like_data'=>$like_data,'g_data'=>$g_data,'good_data'=>$good_data
        ,'three_data'=>$three_data,'street_data'=>$street_data,'street_two_data'=>$street_two_data,'watch'=>$watch,'k_data'=>$k_data,'big_data'=>$big_data
-       ,'s_data'=>$s_data,'ment'=>$ment,'cate'=>$cate,'banner'=>$banner,'cateinfo'=>$cateinfo]);
+       ,'s_data'=>$s_data,'ment'=>$ment,'cate'=>$cate,'banner'=>$banner,'active'=>$active,'friend'=>$friend]);
 
     }
 

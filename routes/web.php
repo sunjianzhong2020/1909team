@@ -195,6 +195,7 @@ Route::any('admin/activedo','Admin\ActiveController@activedo');
 Route::any('admin/activeshow','Admin\ActiveController@activeshow');
 Route::any('admin/activedel','Admin\ActiveController@activedel');
 
+
 Route::any('index/address','Index\AddressController@ressadd');
 Route::any('index/gitcity','Index\AddressController@gitcity');
 Route::any('index/gitarea','Index\AddressController@gitarea');
@@ -216,3 +217,8 @@ Route::any('/goods/goodsSku','Index\GoodsController@goodsSku');
 Route::any('/cart/cartAdd','Index\CartController@cartAdd');
 Route::any('/cart_pay/cart_pay_add','Index\CartPayController@cart_pay_add');
 
+
+Route::any('student/add','Student\StudentController@add');
+Route::any('student/add_do','Student\StudentController@add_do');
+Route::any('student/show','Student\StudentController@show');
+Route::any('student/del','Student\StudentController@del');
