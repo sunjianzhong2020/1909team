@@ -46,6 +46,15 @@
                 <!--表单内容-->
                 <div class="tab-pane active" id="home">
                     <div class="row data-type">
+                        <div class="col-md-2 title">商品属性</div>
+                        <div class="col-md-10 data">
+                            <select type="text" class="form-control" name="sku_name_id"  ng-model="entity.name"value="">
+                                <option value="">请选择</option>
+                                @foreach($sku_name as $v)
+                                    <option value="{{$v->sku_name_id}}">{{$v->sku_name_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
                         <div class="col-md-2 title">商品属性值</div>
                         <div class="col-md-10 data">
@@ -80,6 +89,7 @@
             // alert(111);
             data = {};
             data.sku_val_name = $("input[name='sku_val_name']").val();
+            data.sku_name_id = $("select[name='sku_name_id']").val();
             var url = "/admin/SkuValAdd_do";
             $.ajax({
                 type:'post',

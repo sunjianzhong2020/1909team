@@ -32,7 +32,7 @@
 					<div class="value logos">
 						<ul class="logo-list">
 						 @foreach($brand as $k=>$v)
-							<li><img src="{{$v->b_img}}"/></li>
+							<li><a href="{{$v->b_url}}"><img src="{{$v->b_img}}"/></a></li>
 						@endforeach
 						</ul>
 					</div>

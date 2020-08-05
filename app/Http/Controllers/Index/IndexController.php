@@ -73,10 +73,11 @@ class IndexController extends Controller
         $active = DB::table('shop_active')->where('status',1)->limit(6)->get();
        //尾部导航栏
         $friend = DB::table('shop_friend')->where('status',1)->get();
-
+       //品牌
+        $brand = DB::table('shop_brand')->where('status',1)->get();
        return view('index/index',['day_data'=>$day_data,'like_data'=>$like_data,'g_data'=>$g_data,'good_data'=>$good_data
        ,'three_data'=>$three_data,'street_data'=>$street_data,'street_two_data'=>$street_two_data,'watch'=>$watch,'k_data'=>$k_data,'big_data'=>$big_data
-       ,'s_data'=>$s_data,'ment'=>$ment,'cate'=>$cate,'banner'=>$banner,'cateinfo'=>$cateinfo,'active'=>$active,'friend'=>$friend]);
+       ,'s_data'=>$s_data,'ment'=>$ment,'cate'=>$cate,'banner'=>$banner,'cateinfo'=>$cateinfo,'active'=>$active,'friend'=>$friend,'brand'=>$brand]);
 
     }
 

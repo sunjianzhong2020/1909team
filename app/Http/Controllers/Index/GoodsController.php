@@ -80,7 +80,8 @@ class GoodsController extends CommonController
         $active = DB::table('shop_active')->where('status',1)->limit(6)->get();
         //尾部导航栏
         $friend = DB::table('shop_friend')->where('status',1)->get();
-
+        //导航栏
+        $banner=DB::table('shop_banner')->get();
         //品牌推荐
         $brand_where=[
             ['status','=',1]
@@ -88,7 +89,7 @@ class GoodsController extends CommonController
         $brand_model=new Brand();
         $brand_data=$brand_model::where($brand_where)->get();
             return view('/index/goods/goodsInfo',['like_data'=>$like_data,'f_data'=>$f_data,'goods_info'=>$goods_info,'n_data'=>$n_data,'data'=>$data
-            ,'brand_data'=>$brand_data,'active'=>$active,'friend'=>$friend]);
+            ,'brand_data'=>$brand_data,'active'=>$active,'friend'=>$friend,'banner'=>$banner]);
     }
     /**
      * 商品的sku

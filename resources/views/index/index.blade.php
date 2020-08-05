@@ -552,18 +552,11 @@
 <div class="brand">
     <div class="py-container">
         <ul class="Brand-list blockgary">
+            @foreach($brand as $v)
             <li class="Brand-item">
-                <img src="/index/img/brand_21.png" />
+                <a href="{{$v->b_url}}"><img src="{{$v->b_img}}" /></a>
             </li>
-            <li class="Brand-item"><img src="/index/img/brand_03.png" /></li>
-            <li class="Brand-item"><img src="/index/img/brand_05.png" /></li>
-            <li class="Brand-item"><img src="/index/img/brand_07.png" /></li>
-            <li class="Brand-item"><img src="/index/img/brand_09.png" /></li>
-            <li class="Brand-item"><img src="/index/img/brand_11.png" /></li>
-            <li class="Brand-item"><img src="/index/img/brand_13.png" /></li>
-            <li class="Brand-item"><img src="/index/img/brand_15.png" /></li>
-            <li class="Brand-item"><img src="/index/img/brand_17.png" /></li>
-            <li class="Brand-item"><img src="/index/img/brand_19.png" /></li>
+            @endforeach
         </ul>
     </div>
 </div>

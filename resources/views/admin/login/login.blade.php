@@ -107,7 +107,7 @@
               success:function(result){
                   if(result['code']==200){
                       alert(result['message']);
-                      location.href="/";
+                      window.location.href = "/";
                   }else{
                       alert(result['message']);
                       location.href="/user/login";

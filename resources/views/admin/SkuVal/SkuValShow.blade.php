@@ -43,6 +43,7 @@
                     <input id="selall" type="checkbox" class="icheckbox_square-blue">
                 </th>
                 <th class="sorting_asc">商品属性值id</th>
+                <th class="sorting_asc">所属商品属性</th>
                 <th class="sorting">商品属性值名称</th>
                 <th class="text-center">操作</th>
             </tr>
@@ -52,6 +53,7 @@
             <tr id="{{$v->sku_val_id}}">
                 <td><input  type="checkbox"></td>
                 <td>{{$v->sku_val_id}}</td>
+                <td>{{$v->sku_name_name}}</td>
                 <td>{{$v->sku_val_name}}</td>
                 <td class="text-center">
                     <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
@@ -67,7 +69,7 @@
 </div>
 <!-- /.box-body -->
 <!-- 分页 -->
-
+{{$data->links()}}
 
 <!-- 编辑窗口 -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

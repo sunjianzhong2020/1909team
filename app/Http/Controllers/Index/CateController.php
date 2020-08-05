@@ -26,8 +26,8 @@ class CateController extends Controller
         $active = DB::table('shop_active')->where('status',1)->limit(6)->get();
         //尾部导航栏
         $friend = DB::table('shop_friend')->where('status',1)->get();
-
-    	//sku属性值
-    	return view('index/cate/cateInfo',['brand'=>$brand,"shop_sku_val"=>$shop_sku_val,"shop_sku_name"=>$shop_sku_name,'goods'=>$goods,'active'=>$active,'friend'=>$friend]);
+        //导航栏
+        $banner=DB::table('shop_banner')->get();
+    	return view('index/cate/cateInfo',['brand'=>$brand,"shop_sku_val"=>$shop_sku_val,"shop_sku_name"=>$shop_sku_name,'goods'=>$goods,'active'=>$active,'friend'=>$friend,'banner'=>$banner]);
     }
 }
