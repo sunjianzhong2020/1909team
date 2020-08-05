@@ -195,7 +195,7 @@
                 <li class="yui3-u-1-6">
                     <dl class="picDl huozhe">
                         <dd>
-                            <a href="{{url('/goods/goodsInfo/'.$v->goods_id)}}" class="pic"><img src="{{$vv->goods_img}}" alt=""  style="width:142px;height:142px"/></a>
+                            <a href="{{url('/goods/goodsInfo/'.$vv->goods_id)}}" class="pic"><img src="{{$vv->goods_img}}" alt=""  style="width:142px;height:142px"/></a>
                             <div class="like-text">
                                 <p>{{$vv->goods_desc}}</p>
                                 <h3>￥{{$vv->goods_price}}</h3>
