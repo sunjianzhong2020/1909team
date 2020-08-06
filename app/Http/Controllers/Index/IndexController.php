@@ -72,7 +72,7 @@ class IndexController extends Controller
         //轮播图
         $three_data=$goods_model::where($where)->whereIn('goods_id',[18,19,20])->get();
        //友情链接
-        $active = DB::table('shop_active')->where('status',1)->limit(6)->get();
+        $active = DB::table('shop_active')->where('status',1)->limit(7)->get();
        //尾部导航栏
         $friend = DB::table('shop_friend')->where('status',1)->get();
        //品牌

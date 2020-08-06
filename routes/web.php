@@ -196,7 +196,6 @@ Route::any('admin/activeshow','Admin\ActiveController@activeshow');
 Route::any('admin/activedel','Admin\ActiveController@activedel');
 
 
-
 Route::any('index/address','Index\AddressController@ressadd');
 Route::any('index/gitcity','Index\AddressController@gitcity');
 Route::any('index/gitarea','Index\AddressController@gitarea');
@@ -218,8 +217,14 @@ Route::any('/goods/goodsSku','Index\GoodsController@goodsSku');
 Route::any('/cart/cartAdd','Index\CartController@cartAdd');
 Route::any('/cart_pay/cart_pay_add','Index\CartPayController@cart_pay_add');
 
+
 #个人信息
 Route::any('/index/activedel','Admin\ActiveController@activedel');
+
 //留言板
 Route::any('index/lybadd','Index\IndexController@lybadd');
 Route::any('index/lybadddo','Index\IndexController@lybadddo');
+
+
+
+

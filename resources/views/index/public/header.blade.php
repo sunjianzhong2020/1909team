@@ -83,7 +83,7 @@
                         <div class="hotwords">
                             <ul>
                                 @foreach($active as $v)
-                                <li class="f-item">{{$v->a_name}}</li>
+                                    <a href="{{$v->a_url}}"><li class="f-item">{{$v->a_name}}</li></a>
                                 @endforeach
                             </ul>
                         </div>
