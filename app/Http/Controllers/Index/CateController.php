@@ -22,7 +22,7 @@ class CateController extends Controller
         //商品属性值
         $shop_sku_val=DB::table("shop_sku_val")->get();
         //商品属性
-        $shop_sku_name=DB::table("shop_sku_name")->get();
+        $shop_sku_name=DB::table("shop_sku_name")->whereIn('sku_name_id',[3,5,6,9])->get();
         //友情链接
         $active = DB::table('shop_active')->where('status',1)->limit(6)->get();
         //尾部导航栏

@@ -93,7 +93,7 @@
 								</div>
 								<div class="price">
 									<strong>
-											<em></em>
+											<em>￥</em>
 											<i>{{$v->goods_price}}</i>
 										</strong>
 								</div>
