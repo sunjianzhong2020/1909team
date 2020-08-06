@@ -107,8 +107,11 @@
               success:function(result){
                   if(result['code']==200){
                       alert(result['message']);
-                      window.location.href = "/";
+                      //window.location.href = "/";
+//                      window.open('login');
+                      window.open("/","_parent");
                   }else{
+
                       alert(result['message']);
                       location.href="/user/login";
                   }

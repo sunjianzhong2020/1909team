@@ -20,7 +20,7 @@ class CheckLogin
     {
        $admin_id=request()->session()->get('admin_id');
         if(!$admin_id){
-            echo "<script>alert('请登录');location.href='/user/login';</script>";
+            echo "<script>alert('请登录'); window.open('/user/login','_parent');</script>";
         }else{
             //根据用户id 查询角色ID
             $admin_role_model=new AdminRoleModel();

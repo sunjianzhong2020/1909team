@@ -81,7 +81,7 @@ class CartController extends CommonController
             if($res){
                 return $this->apiOutPut(200,'加入成功，在购物车等亲哦',$res);
             }else{
-                return $this->apiOutPut(443,'对不起，购物车加入失败',$res);
+                return $this->apiOutPut(443,'对不起，购物车加入失败');
             }
         }else{
             $data=[
@@ -96,7 +96,7 @@ class CartController extends CommonController
             if($res){
                 return $this->apiOutPut(200,'加入成功，在购物车等亲哦',$res);
             }else{
-                return $this->apiOutPut(443,'对不起，购物车加入失败',$res);
+                return $this->apiOutPut(443,'对不起，购物车加入失败');
             }
         }
 
