@@ -35,33 +35,29 @@
             <div class="py-container">
                 <div class="shortcut">
                     <ul class="fl">
-                        <li class="f-item">品优购欢迎您！</li>
-
-                        <li class="f-item">请<a href="{{url('/index/logAdd')}}" target="_blank">登录</a>　<span><a href="{{url('/index/reg')}}" target="_blank">免费注册</a></span></li>
-
+                        @if($user_info!=[])
+                        <li class="f-item">品优购欢迎您！</li>{{$user_info->user_name}}&nbsp;先生/女士&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{url('/index/logAdd')}}">退出</a>
+                        @else
+                        <li class="f-item">请<a href="{{url('/index/logAdd')}}">登录</a>　<span><a href="{{url('/index/reg')}}" target="_blank">免费注册</a></span></li>
+                        @endif
                     </ul>
                     <ul class="fr">
-                        <li class="f-item">我的订单</li>
+                        <li class="f-item"><a href="/index/index">我的品优购</a></li>
                         <li class="f-item space"></li>
-                        <li class="f-item"><a href="home.html" target="_blank">我的品优购</a></li>
+                        <li class="f-item"><a href="/index/address">地址添加</a></li>
                         <li class="f-item space"></li>
-                        <li class="f-item"><a href="/index/address" target="_blank">地址添加</a></li>
-                        <li class="f-item space"></li>
-                        <li class="f-item"><a href="/index/consumerAdd" target="_blank">个人信息</a></li>
-                        <li class="f-item space"></li>
-                        <li class="f-item">关注品优购</li>
+                        <li class="f-item"><a href="/index/consumerAdd">个人信息</a></li>
                         <li class="f-item space"></li>
                         <li class="f-item" id="service">
                             <span>客户服务</span>
                             <ul class="service">
-                                <li><a href="cooperation.html" target="_blank">合作招商</a></li>
-                                <li><a href="shoplogin.html" target="_blank">商家后台</a></li>
-                                <li><a href="cooperation.html" target="_blank">合作招商</a></li>
-                                <li><a href="#">商家后台</a></li>
+                                <li><a href="https://www.suning.com/">合作招商</a></li>
+                                <li><a href="https://www.dcdapp.com/">商家后台</a></li>
                             </ul>
                         </li>
                         <li class="f-item space"></li>
-                        <li class="f-item">网站导航</li>
+                        <li class="f-item"><a href="/index/lybadd" >留言板</a></li>
+                        {{--</li>--}}
                     </ul>
                 </div>
             </div>
@@ -126,3 +122,4 @@
         </div>
     </div>
 </div>
+</html>

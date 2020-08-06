@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Index;
 
 use App\Http\Controllers\Controller;
 use App\Models\Goods;
+use App\Models\Lyb;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use active;
@@ -75,9 +77,13 @@ class IndexController extends Controller
         $friend = DB::table('shop_friend')->where('status',1)->get();
        //品牌
         $brand = DB::table('shop_brand')->where('status',1)->get();
+        $admin_id = $request->session()->get('uid');
+//        dd($admin_id);
+        $user_model=new User();
+        $user_info=$user_model::where('uid',$admin_id)->first();
        return view('index/index',['day_data'=>$day_data,'like_data'=>$like_data,'g_data'=>$g_data,'good_data'=>$good_data
        ,'three_data'=>$three_data,'street_data'=>$street_data,'street_two_data'=>$street_two_data,'watch'=>$watch,'k_data'=>$k_data,'big_data'=>$big_data
-       ,'s_data'=>$s_data,'ment'=>$ment,'cate'=>$cate,'banner'=>$banner,'cateinfo'=>$cateinfo,'active'=>$active,'friend'=>$friend,'brand'=>$brand]);
+       ,'s_data'=>$s_data,'ment'=>$ment,'cate'=>$cate,'banner'=>$banner,'cateinfo'=>$cateinfo,'active'=>$active,'friend'=>$friend,'brand'=>$brand,'user_info'=>$user_info]);
 
     }
 
@@ -91,4 +97,28 @@ class IndexController extends Controller
         return view('index/item');
     }
 
+    public function lybadd(Request $request)
+    {
+        $resinfo = $request->all();
+        $lybmodel = new Lyb();
+        $reslyb = $lybmodel->paginate(9);
+        return view('index/lybadd',["reslyb"=>$reslyb]);
+    }
+    public function lybadddo(Request $request)
+    {
+        $lybinfo = $request->all();
+//        print_r($lybinfo);
+//        $shop_lyb_time = time();
+//        dd($lybinfo);
+        $lybinfo['shop_lyb_time']=time();
+        $lybmodel = new Lyb();
+        $res = $lybmodel->insert($lybinfo);
+        if ($res) {
+            echo json_encode(['errno' => 00000, 'msg' => '添加成功']);
+        } else {
+            echo json_encode(['errno' => 00001, 'msg' => '添加失败']);
+            exit;
+        }
+        return view('index/lybadd');
+    }
 }

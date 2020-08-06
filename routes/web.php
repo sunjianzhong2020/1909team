@@ -220,4 +220,6 @@ Route::any('/cart_pay/cart_pay_add','Index\CartPayController@cart_pay_add');
 
 #个人信息
 Route::any('/index/activedel','Admin\ActiveController@activedel');
-
+//留言板
+Route::any('index/lybadd','Index\IndexController@lybadd');
+Route::any('index/lybadddo','Index\IndexController@lybadddo');
