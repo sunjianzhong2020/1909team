@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Index;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 class CateController extends Controller
 {
     /**
@@ -28,6 +29,10 @@ class CateController extends Controller
         $friend = DB::table('shop_friend')->where('status',1)->get();
         //导航栏
         $banner=DB::table('shop_banner')->get();
-    	return view('index/cate/cateInfo',['brand'=>$brand,"shop_sku_val"=>$shop_sku_val,"shop_sku_name"=>$shop_sku_name,'goods'=>$goods,'active'=>$active,'friend'=>$friend,'banner'=>$banner]);
+        $admin_id = request()->session()->get('uid');
+//        dd($admin_id);
+        $user_model=new User();
+        $user_info=$user_model::where('uid',$admin_id)->first();
+    	return view('index/cate/cateInfo',['brand'=>$brand,"shop_sku_val"=>$shop_sku_val,"shop_sku_name"=>$shop_sku_name,'goods'=>$goods,'active'=>$active,'friend'=>$friend,'banner'=>$banner,'user_info'=>$user_info]);
     }
 }

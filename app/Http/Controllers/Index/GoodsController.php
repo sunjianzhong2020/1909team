@@ -11,7 +11,7 @@ use App\Models\SkuVal;
 use App\Models\Sku;
 use App\Models\SkuName;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\User;
 class GoodsController extends CommonController
 {
     /***
@@ -88,8 +88,12 @@ class GoodsController extends CommonController
         ];
         $brand_model=new Brand();
         $brand_data=$brand_model::where($brand_where)->get();
+        $admin_id = request()->session()->get('uid');
+//        dd($admin_id);
+        $user_model=new User();
+        $user_info=$user_model::where('uid',$admin_id)->first();
             return view('/index/goods/goodsInfo',['like_data'=>$like_data,'f_data'=>$f_data,'goods_info'=>$goods_info,'n_data'=>$n_data,'data'=>$data
-            ,'brand_data'=>$brand_data,'active'=>$active,'friend'=>$friend,'banner'=>$banner]);
+            ,'brand_data'=>$brand_data,'active'=>$active,'friend'=>$friend,'banner'=>$banner,'user_info'=>$user_info]);
     }
     /**
      * 商品的sku
