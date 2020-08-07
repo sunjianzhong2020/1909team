@@ -20,7 +20,7 @@
                                     <dd>
                                         @foreach($cateinfo as $k=>$vvv)
                                         @if($vv->c_id==$vvv->p_id)
-                                           <em><a href="">{{$vvv->c_name}}</a></em>
+                                           <em><a href="https://www.vip.com/">{{$vvv->c_name}}</a></em>
                                         @endif
                                         @endforeach
                                     </dd>

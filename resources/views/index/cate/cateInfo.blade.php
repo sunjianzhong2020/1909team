@@ -50,7 +50,7 @@
 							@foreach($shop_sku_val as $vv)
 								@if($v->sku_name_id==$vv->sku_name_id)
 							<li>
-								<a>{{$vv->sku_val_name}}</a>
+								<a sku_val_id="{{$vv->sku_val_id}}" class="sku">{{$vv->sku_val_name}}</a>
 							</li>
 								@endif
 							@endforeach
@@ -61,29 +61,24 @@
 
 			</div>
 			<!--details-->
-			<div class="details">
+			<div class="details" >
 				<div class="sui-navbar">
 					<div class="navbar-inner filter">
 						<ul class="sui-nav">
 							<li class="active">
-								<a href="#">综合</a>
+								<a href="#" class="field" field="">综合</a>
 							</li>
 							<li>
-								<a href="#">销量</a>
+								<a href="#" field="is_new" class="field">新品</a>
 							</li>
 							<li>
-								<a href="#">新品</a>
+								<a href="#" field="is_best" class="field">热卖</a>
 							</li>
-							<li>
-								<a href="#">评价</a>
-							</li>
-							<li>
-								<a href="#">价格</a>
-							</li>
+
 						</ul>
 					</div>
 				</div>
-				<div class="goods-list">
+				<div class="goods-list" id="info">
 					<ul class="yui3-g">
 						@foreach($goods as $k=>$v)
 						<li class="yui3-u-1-5">
@@ -106,47 +101,11 @@
 								<div class="commit">
 									<i class="command">已有2000人评价</i>
 								</div>
-								<div class="operate">
-									<a href="success-cart.html" target="_blank" class="sui-btn btn-bordered btn-danger">加入购物车</a>
-									<a href="javascript:void(0);" class="sui-btn btn-bordered">对比</a>
-									<a href="javascript:void(0);" class="sui-btn btn-bordered">关注</a>
-								</div>
+
 							</div>
 						</li>
 						@endforeach
 					</ul>
-				</div>
-				<div class="fr page">
-					<div class="sui-pagination pagination-large">
-						<ul>
-							<li class="prev disabled">
-								<a href="#">«上一页</a>
-							</li>
-							<li class="active">
-								<a href="#">1</a>
-							</li>
-							<li>
-								<a href="#">2</a>
-							</li>
-							<li>
-								<a href="#">3</a>
-							</li>
-							<li>
-								<a href="#">4</a>
-							</li>
-							<li>
-								<a href="#">5</a>
-							</li>
-							<li class="dotted"><span>...</span></li>
-							<li class="next">
-								<a href="#">下一页»</a>
-							</li>
-						</ul>
-						<div><span>共10页&nbsp;</span><span>
-      到第
-      <input type="text" class="page-num">
-      页 <button class="page-confirm" onclick="alert(1)">确定</button></span></div>
-					</div>
 				</div>
 			</div>
 			<!--hotsale-->
@@ -340,11 +299,61 @@
 
 			})
 		</script>
-		<script type="text/javascript" src="js/model/cartModel.js"></script>
-		<script type="text/javascript" src="js/czFunction.js"></script>
-		<script type="text/javascript" src="js/plugins/jquery.easing/jquery.easing.min.js"></script>
-		<script type="text/javascript" src="js/plugins/sui/sui.min.js"></script>
-		<script type="text/javascript" src="js/widget/cartPanelView.js"></script>
+		<script type="text/javascript" src="/index/js/model/cartModel.js"></script>
+		<script type="text/javascript" src="/index/js/czFunction.js"></script>
+		<script type="text/javascript" src="/index/js/plugins/jquery.easing/jquery.easing.min.js"></script>
+		<script type="text/javascript" src="/index/js/plugins/sui/sui.min.js"></script>
+		<script type="text/javascript" src="/index/js/widget/cartPanelView.js"></script>
 	</body>
 
 </html>
+<script>
+	$(document).ready(function(){
+		$(document).on('click','.sku',function(){
+
+			//获取当前点击的
+			var _this=$(this);
+			var sku_val_id=_this.attr('sku_val_id');
+			var data={};
+			data.sku_val_id=sku_val_id;
+			var url="/skuList";
+			$.ajax({
+				url:url,
+				data:data,
+				type:'post',
+				dataType:'html',
+				success:function(result){
+					$('#info').html(result);
+//					console.log(result);return false;
+//					if(result['code']==200){
+//						console.log(result['resault']);
+//					}else{
+//						alert(result['message']);
+//					}
+				}
+			})
+		})
+		$(document).on('click','.field',function(){
+			var _this=$(this);
+			var field=_this.attr('field');
+			if(field==''){
+				return false;
+			}
+			_this.parent('li').addClass('active');
+			_this.parent('li').siblings('li').removeClass('active');
+			var data={};
+			data.field=field;
+			var url="/cateIs"
+			$.ajax({
+				url:url,
+				data:data,
+				type:'post',
+				dataType:'html',
+				success:function(result){
+					$('#info').html(result);
+				}
+			})
+		})
+
+	})
+</script>

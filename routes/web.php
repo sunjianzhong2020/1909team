@@ -225,6 +225,7 @@ Route::any('/index/activedel','Admin\ActiveController@activedel');
 Route::any('index/lybadd','Index\IndexController@lybadd');
 Route::any('index/lybadddo','Index\IndexController@lybadddo');
 
-
-
+//商品详情的sku列表
+Route::any('/skuList','Index\CateController@skuList');
+Route::any('/cateIs','Index\CateController@cateIs');
 

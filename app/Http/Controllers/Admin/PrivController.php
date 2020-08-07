@@ -112,15 +112,7 @@ class PrivController extends CommonController
             'priv_url'=>$priv_url,
             'add_time'=>time()
         ];
-        $where=[
-            ['priv_id','!=',$priv_id],
-            ['priv_name','=',$priv_name]
-        ];
         $priv_model=new PrivModel();
-        $count=$priv_model::where($where)->count();
-        if($count){
-            return $this->apiOutPut('000000','该权限已存在',$count);
-        }
         $res=$priv_model::where('priv_id',$priv_id)->update($data);
         if($res){
             return $this->apiOutPut('200','修改成功',$res);
