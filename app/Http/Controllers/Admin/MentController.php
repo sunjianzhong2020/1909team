@@ -54,14 +54,20 @@ class MentController extends Controller
     public function catedel($id)
     {
         $mentmodel = new Ment();
-        $where [] = [
-            'shop_ment_cate_id', '=', $id
-        ];
-        $res = Ment::where($where)->delete();
-        if ($res) {
-            return redirect('ment/catelist');
+        $shop_ment_model=new Mentmodels();
+        $arr=$shop_ment_model::where('shop_ment_cate_id',$id)->get();
+        if(empty($arr)){
+            $where [] = [
+                'shop_ment_cate_id', '=', $id
+            ];
+            $res = Ment::where($where)->delete();
+            if ($res) {
+                return redirect('ment/catelist');
+            }
+        }else{
+            return  "<script>alert('该分类下有商品不能删除')</script>".redirect('ment/catelist');
+//            return
         }
-
     }
     public function cateedit($id){
         $mentmodel = new Ment();
@@ -97,7 +103,7 @@ class MentController extends Controller
     {
         $mentcate=Ment::get();
         $mentmodel = new Ment();
-        $res =DB::table('shop_ment')->leftjoin('shop_ment_cate','shop_ment_cate.shop_ment_cate_id','=','shop_ment.shop_ment_cate_id')->where(["shop_ment_del"=>2])->paginate(5);
+        $res =DB::table('shop_ment')->leftjoin('shop_ment_cate','shop_ment_cate.shop_ment_cate_id','=','shop_ment.shop_ment_cate_id')->where(["is_del"=>1])->paginate(5);
 //        print_r($res);
         return view('admin.ment.mentlist',['res'=>$res,"mentcate"=>$mentcate]);
     }
@@ -129,12 +135,8 @@ class MentController extends Controller
     public function mentdel($id)
     {
         $mentmodels = new Mentmodels();
-        $where=[
-            ['shop_ment_id', '=', $id]
-        ];
-//        dd($where);
-        $res = $mentmodels->where($where)->delete();
-
+        $res = $mentmodels->where('shop_ment_id',$id)->update(['is_del'=>'2']);
+//        dd($res);
         if ($res) {
             return redirect('ment/mentlist');
         }

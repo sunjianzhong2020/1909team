@@ -76,7 +76,7 @@
                 <td><img src="{{$v->shop_ment_img}}" alt="" width="122px"></td>
                 <td class="text-center">
                     <a href="{{url('/ment/mentedit/'.$v->shop_ment_id)}}"><button type="button" class="btn btn-primary">修改</button></a>
-                    <a href="{{url('ment/mentdel/'.$v->shop_ment_id)}}"><button type="button" class="btn btn-danger">删除</button></a>
+                    <a onclick="return window.confirm('是否删除?')"href="{{url('ment/mentdel/'.$v->shop_ment_id)}}"><button type="button" class="btn btn-danger">删除</button></a>
                 </td>
             </tr>
                 @endforeach
@@ -141,8 +141,8 @@
                     <tr>
                         <td>有效</td>
                         <td>
-                            <input type="radio" class="checkbox_square-blue" checked name="shop_ment_del" name="shop_ment_del" id="shop_ment_del" value="2">是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="radio" class="checkbox_square-blue" name="shop_ment_del" name="shop_ment_del" id="shop_ment_del" value="1">否
+                            <input type="radio" class="checkbox_square-blue" checked  name="shop_ment_del" id="shop_ment_del" value="2">是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" class="checkbox_square-blue"  name="shop_ment_del" id="shop_ment_del" value="1">否
                         </td>
                     </tr>
                 </table>
@@ -179,8 +179,12 @@
         var shop_ment_url = $('#shop_ment_url').val();
         var shop_ment_del = $('#shop_ment_del:checked').val();
         var shop_ment_img = img2;
-//        alert(shop_ment_img);
-        //alert(shop_ment_del);false;
+        var data ={};
+        data.shop_ment_cate_id= shop_ment_cate_id;
+        data.shop_ment_title= shop_ment_title;
+        data.shop_ment_url= shop_ment_url;
+        data.shop_ment_del= shop_ment_del;
+        data.shop_ment_img= shop_ment_img;
         if(!shop_ment_title){
             alert('标题不能为空');
             return false;
@@ -189,27 +193,17 @@
             alert('网址不能为空');
             return false;
         }
-        $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
-
         $.ajax({
-            url:"/ment/mentadd",
-            data:{'shop_ment_cate_id':shop_ment_cate_id,'shop_ment_title':shop_ment_title,'shop_ment_url':shop_ment_url,'shop_ment_del':shop_ment_del,'shop_ment_img':shop_ment_img},
-            type:"post",
+            url:'/ment/mentadd',
+            data:data,
+            type:'post',
             dataType:'json',
-            success:function(res){
-                console.log(res);
-//                return false;
-                if(res['errno']=='00000'){
-                    alert(res['msg']);
-                    location.href="mentlist";
-                }else{
-                    alert(res['msg']);
-                    location.href="mentlist";
+            success:function(msg){
+                if(msg.errno==00000){
+                    alert(msg.msg);
                 }
-
             }
         })
-
     })
     //根据点击事件获取span标签
     $(document).on('click',".span_title",function(){

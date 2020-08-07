@@ -38,6 +38,15 @@ class AddressController extends Controller
 //添加页面
     public function dizhiadd(Request $request){
         $dizhi = $request->all();
+        if(!$dizhi['shop_address_province']){
+            return json_encode(['errno' => 00001, 'msg' => '请选择所属的省或直辖市']);
+        }
+        if(!$dizhi['shop_address_city']){
+            return json_encode(['errno' => 00001, 'msg' => '请选择所属的城市']);
+        }
+        if(!$dizhi['shop_address_area']){
+            return json_encode(['errno' => 00001, 'msg' => '请选择所属的县/区']);
+        }
         $bb = DB::table('shop_address')->where('shop_address_name', $dizhi['shop_address_name'])->first();
         if ($bb) {
             echo json_encode(['errno' => 00001, 'msg' => '用户名已被注册']);
