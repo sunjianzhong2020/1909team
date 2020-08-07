@@ -120,8 +120,15 @@ Route::any('admin/SkuNameAdd','Admin\SkuNameController@SkuNameAdd');
 Route::any('admin/SkuNameAdd_do','Admin\SkuNameController@SkuNameAdd_do');
 #sku属性展示
 Route::any('admin/SkuNameShow','Admin\SkuNameController@SkuNameShow');
-#sku属性值删除
+#sku属性删除
 Route::any('admin/SkuNameDel','Admin\SkuNameController@SkuNameDel');
+#sku属性修改
+Route::any('admin/SkuNameEdit/{id}','Admin\SkuNameController@SkuNameEdit');
+#sku属性执行修改
+Route::any('admin/SkuNameUpd','Admin\SkuNameController@SkuNameUpd');
+
+
+
 
 #sku属性值添加
 Route::any('admin/SkuValAdd','Admin\SkuValController@SkuValAdd');
@@ -131,6 +138,8 @@ Route::any('admin/SkuValAdd_do','Admin\SkuValController@SkuValAdd_do');
 Route::any('admin/SkuValShow','Admin\SkuValController@SkuValShow');
 #sku属性值删除
 Route::any('admin/SkuValDel','Admin\SkuValController@SkuValDel');
+
+
 
 
 #sku添加

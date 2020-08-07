@@ -29,9 +29,9 @@
     <div class="table-box">
 
         <div class="box-tools pull-right">
-            <div class="has-feedback">
-                名称：<input><button class="btn btn-default" >查询</button>
-            </div>
+{{--            <div class="has-feedback">--}}
+{{--                名称：<input><button class="btn btn-default" >查询</button>--}}
+{{--            </div>--}}
         </div>
         <!--工具栏/-->
 
@@ -56,7 +56,6 @@
                 <td>{{$v->sku_name_name}}</td>
                 <td>{{$v->sku_val_name}}</td>
                 <td class="text-center">
-                    <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
                     <button type="button" name="del" class="btn bg-olive btn-xs" data-toggle="modal">删除</button>
                 </td>
             </tr>
@@ -134,6 +133,13 @@
                     }
                 }
             })
+        })
+
+        $("button[name='btn']").click(function(){
+            // alert(11);
+            var id = $(this).parents('tr').attr('id');
+            // alert(id);
+            location.href="/admin/SkuValEdit/"+id;
         })
     })
 </script>

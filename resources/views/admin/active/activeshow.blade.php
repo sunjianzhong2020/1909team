@@ -60,7 +60,6 @@
 			                          	<td>{{$v->is_show == 1 ? "是" : "否"}}</td>
 
 										<td>
-										 <button type="button" class="btn bg-olive btn-xs" name='btn'  data-target="#editModal">修改</button>
 										<button class="btn bg-olive btn-xs bto" name='del'>删除</button>
 										</td>
 			                          </tr>

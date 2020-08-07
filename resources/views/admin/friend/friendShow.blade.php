@@ -57,7 +57,6 @@
 			                          	<td>{{$v->f_name}}</td>
 			                          	<td>{{$v->f_url}}</td>
 										<td>
-										<button class="btn bg-olive btn-xs" >修改</button>
 										<button class="btn bg-olive btn-xs bto" add="{{$v->f_id}}">删除</button>
 										</td>
 			                          </tr>

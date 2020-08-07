@@ -126,6 +126,11 @@
             set = setInterval(gotime,1000);
             data = {};
             data.phone = $("input[name='phone']").val();
+
+            if(!(/^1[3456789]\d{9}$/.test(data.phone))){
+                alert("手机号码有误，请重填");
+                return false;
+            }
             // alert(data.phone);
             var url = "/index/verify";
             $.ajax({
@@ -139,6 +144,10 @@
                 }
             });
         })
+
+
+
+
 
         $("a[name='btn']").click(function(){
             // alert(111);

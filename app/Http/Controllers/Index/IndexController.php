@@ -32,7 +32,7 @@ class IndexController extends Controller
         $cate=DB::table('shop_cate')->where('p_id',0)->get()->toArray();
         $cateinfo=DB::table('shop_cate')->get();
         //导航栏
-        $banner=DB::table('shop_banner')->get();
+        $banner=DB::table('shop_banner')->limit(8)->get();
 
         //今日推荐
         $day_where=[
@@ -74,7 +74,7 @@ class IndexController extends Controller
        //友情链接
         $active = DB::table('shop_active')->where('status',1)->limit(7)->get();
        //尾部导航栏
-        $friend = DB::table('shop_friend')->where('status',1)->get();
+        $friend = DB::table('shop_friend')->where('status',1)->limit(5)->get();
        //品牌
         $brand = DB::table('shop_brand')->where('status',1)->get();
         $admin_id = $request->session()->get('uid');

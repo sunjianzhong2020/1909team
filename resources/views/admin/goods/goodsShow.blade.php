@@ -28,17 +28,17 @@
     <!-- 数据表格 -->
     <div class="table-box">
         <div class="box-tools pull-right">
-            <div class="has-feedback">
-                状态：<select>
-                    <option value="">全部</option>
-                    <option value="0">未申请</option>
-                    <option value="1">申请中</option>
-                    <option value="2">审核通过</option>
-                    <option value="3">已驳回</option>
-                </select>
-                商品名称：<input >
-                <button class="btn btn-default" >查询</button>
-            </div>
+{{--            <div class="has-feedback">--}}
+{{--                状态：<select>--}}
+{{--                    <option value="">全部</option>--}}
+{{--                    <option value="0">未申请</option>--}}
+{{--                    <option value="1">申请中</option>--}}
+{{--                    <option value="2">审核通过</option>--}}
+{{--                    <option value="3">已驳回</option>--}}
+{{--                </select>--}}
+{{--                商品名称：<input >--}}
+{{--                <button class="btn btn-default" >查询</button>--}}
+{{--            </div>--}}
         </div>
         <!--工具栏/-->
 
@@ -81,7 +81,6 @@
                 <td>{{$v->c_name}}</td>
                 <td>{{$v->b_name}}</td>
                 <td class="text-center">
-                    <button type="button" class="btn bg-olive btn-xs">修改</button>
                     <button type="button" name="del" class="btn bg-olive btn-xs">删除</button>
                 </td>
             </tr>

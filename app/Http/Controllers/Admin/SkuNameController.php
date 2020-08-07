@@ -79,4 +79,51 @@ class SkuNameController extends CommonController
         }
 
     }
+
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * 属性修改
+     */
+    public function SkuNameEdit($id)
+    {
+        $res = SkuName::where('sku_name_id',$id)->first();
+//        dd($res);
+        return view('admin/SkuName/SkuNameEdit',['res'=>$res]);
+    }
+
+    /**
+     * @param Request $request
+     * @return array
+     * 属性执行修改
+     */
+    public function SkuNameUpd(Request $request)
+    {
+        $arr = $request -> all();
+        $sku_name_name = $arr['sku_name_name'];
+        $sku_name_id = $arr['sku_name_id'];
+        if(empty($sku_name_name)){
+            return $this->apiOutPut('000000','属性名称不能为空');
+        }
+
+        $data=[
+            'sku_name_name'=>$sku_name_name,
+            'addtime'=>time()
+        ];
+        $where=[
+            ['sku_name_name','=',$sku_name_name]
+        ];
+        $count=SkuName::where($where)->count();
+        if($count){
+            return $this->apiOutPut('000000','该属性已存在',$count);
+        }
+        $res=SkuName::where('sku_name_id',$sku_name_id)->update($data);
+        if($res){
+            return $this->apiOutPut('200','修改成功',$res);
+        }else{
+            return $this->apiOutPut('000000','修改失败');
+        }
+    }
+
 }

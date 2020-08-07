@@ -70,7 +70,6 @@
                 <td>{{$v->c_words}}</td>
                 <td>{{$v->c_desc}}</td>
                 <td class="text-center">
-                    <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
                     <button type="button" name="del" class="btn bg-olive btn-xs" data-toggle="modal">删除</button>
                 </td>
             </tr>

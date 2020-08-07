@@ -30,6 +30,7 @@ class RegisterController extends CommonController
 //        print_r($phone);
         if(empty($phone)){
             return $this->apiOutPut('000001','手机号不能为空');
+            exit;
         }else{
             #验证用户是否可以发送短信 【一分钟只能发送1条】
             $code_model = new Code();
@@ -104,6 +105,10 @@ class RegisterController extends CommonController
         if(empty($code)){
             return $this -> apiOutPut('000001','验证码不能为空');
             exit;
+        }
+        $code_info = Code::where('code',$code)->first();
+        if(!$code_info){
+            return $this->apiOutPut('000001','验证码不正确');
         }
         $data['user_name'] = $user_name;
         $data['user_pwd'] = md5($user_pwd);

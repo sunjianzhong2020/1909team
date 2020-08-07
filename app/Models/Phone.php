@@ -59,4 +59,5 @@ class Phone extends Model
             return false;
         }
     }
+
 }

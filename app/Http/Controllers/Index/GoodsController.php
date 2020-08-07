@@ -81,7 +81,7 @@ class GoodsController extends CommonController
         //尾部导航栏
         $friend = DB::table('shop_friend')->where('status',1)->get();
         //导航栏
-        $banner=DB::table('shop_banner')->get();
+        $banner=DB::table('shop_banner')->limit(8)->get();
         //品牌推荐
         $brand_where=[
             ['status','=',1]

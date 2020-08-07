@@ -82,6 +82,6 @@ class SkuValController extends CommonController
         }else{
             return $this->apiOutPut('000001','删除失败');
         }
-
     }
+
 }

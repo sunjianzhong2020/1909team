@@ -20,7 +20,7 @@ class CartPayController extends CommonController
     public function cart_pay_add(Request $request)
     {
         //尾部导航栏
-        $friend = DB::table('shop_friend')->where('status',1)->get();
+        $friend = DB::table('shop_friend')->where('status',1)->limit(5)->get();
         $uid=$request->session()->get('uid');
          $cart_where=[
             ['uid','=',$uid],

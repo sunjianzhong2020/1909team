@@ -26,6 +26,12 @@ class SkuController extends CommonController
         return view('/admin/sku/skuAdd',['goods'=>$goods,'sku_name'=>$sku_name]);
     }
 
+
+    /**
+     * @param Request $request
+     * @return array
+     * sku执行添加
+     */
     public function skuAdd_do(Request $request)
     {
        $arr = $request -> all();

@@ -29,9 +29,10 @@ class CateController extends CommonController
         //友情链接
         $active = DB::table('shop_active')->where('status', 1)->limit(6)->get();
         //尾部导航栏
-        $friend = DB::table('shop_friend')->where('status', 1)->get();
+        $friend = DB::table('shop_friend')->where('status',1)->limit(5)->get();
         //导航栏
-        $banner = DB::table('shop_banner')->get();
+        $banner=DB::table('shop_banner')->limit(8)->get();
+
         $admin_id = request()->session()->get('uid');
 //        dd($admin_id);
         $user_model = new User();

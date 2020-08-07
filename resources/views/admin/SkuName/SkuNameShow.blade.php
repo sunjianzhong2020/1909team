@@ -20,7 +20,7 @@
 <!-- .box-body -->
 
 <div class="box-header with-border">
-    <h3 class="box-title">商品分类展示</h3>
+    <h3 class="box-title">商品属性展示</h3>
 </div>
 
 <div class="box-body">
@@ -29,9 +29,7 @@
     <div class="table-box">
 
         <div class="box-tools pull-right">
-            <div class="has-feedback">
-                名称：<input><button class="btn btn-default" >查询</button>
-            </div>
+
         </div>
         <!--工具栏/-->
 
@@ -54,8 +52,8 @@
                 <td>{{$v->sku_name_id}}</td>
                 <td>{{$v->sku_name_name}}</td>
                 <td class="text-center">
-                    <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
                     <button type="button" name="del" class="btn bg-olive btn-xs" data-toggle="modal">删除</button>
+                    <button type="button" name="edit" class="btn bg-olive btn-xs" data-toggle="modal">修改</button>
                 </td>
             </tr>
             @endforeach
@@ -75,28 +73,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel">广告分类编辑</h3>
+                <h3 id="myModalLabel">商品属性编辑</h3>
             </div>
             <div class="modal-body">
 
                 <table class="table table-bordered table-striped"  width="800px">
                     <tr>
-                        <td>分类名称</td>
-                        <td><input  class="form-control" placeholder="分类名称">  </td>
-                    </tr>
-                    <tr>
-                        <td>分组</td>
-                        <td><input  class="form-control" placeholder="分组">  </td>
-                    </tr>
-                    <tr>
-                        <td>KEY</td>
-                        <td><input  class="form-control" placeholder="KEY">  </td>
-                    </tr>
-                    <tr>
-                        <td>是否有效</td>
-                        <td>
-                            <input type="checkbox" class="icheckbox_square-blue" >
-                        </td>
+                        <td>商品属性名称</td>
+                        <td><input  class="form-control" placeholder="分类名称"></td>
                     </tr>
                 </table>
 
@@ -132,6 +116,14 @@
                     }
                 }
             })
+        })
+
+        //商品属性修改
+        $("button[name='edit']").click(function(){
+              // alert(123);
+            var id = $(this).parents('tr').attr('id');
+            // alert(id);
+            location.href="/admin/SkuNameEdit/"+id;
         })
     })
 </script>
